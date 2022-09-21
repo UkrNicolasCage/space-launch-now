@@ -1,0 +1,21 @@
+* {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+
+  color: #fff;
+  
+}
+body{
+  font-family: "Roboto";
+}
+.bg {
+  /* position: absolute; */
+  z-index: -1;
+  min-height: 100vh;
+  background:  rgba(24, 27, 72)  fixed;
+}
+
+.button{
+  background-color: "linear-gradient(93.72deg, #8E2DE2 9.41%, #4A00E0 86.1%)";
+}

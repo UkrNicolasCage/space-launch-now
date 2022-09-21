@@ -1,0 +1,61 @@
+.logo {
+  position: absolute;
+  width: 95px;
+  height: 107px;
+}
+
+.logo-align-home {
+  margin: 2.75rem calc(100vw / 2 - 1rem);
+  text-align: center;
+}
+
+.logo-align {
+  margin: 2.75rem calc((100vw / 3)*2 - 1rem);
+  margin-right: 10rem;
+}
+
+.to-home-link {
+  margin: 1.25rem 10%;
+  font-family: "Montserrat", sans-serif;
+  font-size: 1.5rem;
+  font-weight: 600;
+  text-decoration: none;
+  overflow: hidden;
+}
+
+.to-home-arrow {
+  margin-right: 0.5rem;
+  height: 2.5rem;
+  transform: translateY(0.5rem);
+}
+.to-home-text{
+  display: none;
+}
+@media screen and (min-width: 668px) {
+  .to-home-text{
+  display: inline;
+}
+
+.to-home-arrow {
+  margin-right: 0.5rem;
+  height: 1.5rem;
+  transform: translateY(0.25rem);
+}
+
+}
+@media screen and (min-width: 992px) {
+  .to-home-link {
+    margin: 1.25rem 10%;
+    font-family: "Montserrat", sans-serif;
+    font-size: 1.75rem;
+    font-weight: 600;
+    text-decoration: none;
+    overflow: hidden;
+  }
+  .to-home-arrow {
+    margin-right: 0.75rem;
+    height: 2rem;
+    transform: translateY(0.4rem);
+  }
+}
+
