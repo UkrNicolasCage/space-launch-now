@@ -1,0 +1,29 @@
+.header {
+  height: auto;
+  overflow-x: hidden;
+  background: transparent;
+  box-shadow: none;
+}
+
+.header-arows * {
+  margin-left: 1.75rem;
+}
+
+.header-arows *:active,
+.header-arows *:hover {
+  background: none;
+}
+.card{
+  width: 380px;
+
+  display: grid;
+  justify-content: flex-start;
+  flex-direction: column;
+  align-items: inherit;
+   grid-gap: 1.25rem;
+  
+}
+
+.date {
+  justify-self: flex-start;
+}

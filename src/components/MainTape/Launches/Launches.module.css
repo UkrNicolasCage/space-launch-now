@@ -1,0 +1,37 @@
+.launches {
+  margin-top: 7rem;
+}
+
+.header {
+  height: auto;
+  overflow-x: hidden;
+  background: transparent;
+  box-shadow: none;
+  text-align: center;
+  margin-bottom: 3.25rem;
+}
+
+.card {
+  
+  display: grid;
+  justify-content: flex-start;
+  flex-direction: column;
+}
+
+.image-container {
+  position: relative;
+  overflow: visible;
+  width: 100%;
+}
+.image-container img{
+  width: 100%;
+}
+
+.date {
+  width: max-content;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  
+}

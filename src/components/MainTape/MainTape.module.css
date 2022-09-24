@@ -1,0 +1,57 @@
+.center {
+  width: 90%;
+  margin: 5% auto 0;
+}
+
+.description {
+  color: #c0c0c0;
+}
+
+.hero {
+  padding: 10rem 0 0 0;
+  text-align: center;
+}
+
+.hero h1 {
+  font-size: 3rem;
+}
+
+.main-tape {
+  background: #1c2056;
+  margin-top: 8rem;
+  padding: 2.5rem 2rem;
+}
+
+@media screen and (min-width: 778px) {
+  .center {
+    width: 80%;
+    margin: 25% auto 0;
+  }
+  .hero {
+    padding: 0rem 5% 0 10%;
+    text-align: left;
+  }
+  .hero h1 {
+    font-size: 3.2rem;
+  }
+  .description {
+    width: 65%;
+  }
+  .main-tape {
+    padding: 5rem 4rem;
+  }
+}
+
+@media screen and (min-width: 1170px) {
+  .center {
+    width: 75%;
+    margin: 15% auto 0;
+  }
+  .hero {
+    padding: 1rem 28% 0 10%;
+  }
+  .main-tape {
+    margin-top: 11.5rem;
+    padding: 8rem 7rem;
+  }
+}

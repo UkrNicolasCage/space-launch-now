@@ -10,7 +10,7 @@
 }
 
 .logo-align {
-  margin: 2.75rem calc((100vw / 3)*2 - 1rem);
+  margin: 2.75rem calc((100vw / 3) * 2 - 1rem);
   margin-right: 10rem;
 }
 
@@ -28,20 +28,19 @@
   height: 2.5rem;
   transform: translateY(0.5rem);
 }
-.to-home-text{
+.to-home-text {
   display: none;
 }
-@media screen and (min-width: 668px) {
-  .to-home-text{
-  display: inline;
-}
+@media screen and (min-width: 778px) {
+  .to-home-text {
+    display: inline;
+  }
 
-.to-home-arrow {
-  margin-right: 0.5rem;
-  height: 1.5rem;
-  transform: translateY(0.25rem);
-}
-
+  .to-home-arrow {
+    margin-right: 0.5rem;
+    height: 1.5rem;
+    transform: translateY(0.25rem);
+  }
 }
 @media screen and (min-width: 992px) {
   .to-home-link {
@@ -59,3 +58,12 @@
   }
 }
 
+@media screen and (max-width: 778px) {
+  .header {
+    height: 4.5rem;
+  }
+  .logo-align-home {
+    margin: 1.5rem calc(100vw / 2 - 1.25rem);
+    text-align: center;
+  }
+}

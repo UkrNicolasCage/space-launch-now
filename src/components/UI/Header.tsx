@@ -26,7 +26,7 @@ export const Header = () => {
   return (
     <>
       <ElevationScroll>
-        <AppBar>
+        <AppBar className={styles.header}>
           <NavLink to="/" color="#fff" className={styles["to-home-link"]}>
             <img
               src={toHomeArrow}

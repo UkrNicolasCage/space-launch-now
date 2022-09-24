@@ -15,7 +15,7 @@ export const theme = createTheme({
   palette: {
     mode: "dark",
     primary: {
-      main: "rgba(28, 32, 86, 1)",
+      main: "#1C2056",
     },
     secondary: {
       main: "rgba(74, 0, 224, 1)",
@@ -30,6 +30,19 @@ export const theme = createTheme({
       fontFamily: "Montserrat",
       fontWeight: 800,
       fontSize: "4.5rem",
+      color: "#F1EBFF",
+    },
+    h2: {
+      fontFamily: "Montserrat",
+      fontWeight: 800,
+      fontSize: "3rem",
+      color: "#F1EBFF",
+    },
+    h3: {
+      fontFamily: "Montserrat",
+      fontWeight: 700,
+      fontSize: "1.5rem",
+      color: "#F1EBFF",
     },
   },
   components: {
@@ -51,7 +64,7 @@ export const theme = createTheme({
     },
     MuiButton: {
       styleOverrides: {
-        contained: {
+        containedSizeLarge: {
           fontSize: "1.25rem",
           padding: "1rem 2.5rem",
           fontFamily: "Montserrat",
@@ -61,7 +74,31 @@ export const theme = createTheme({
           background:
             "linear-gradient(93.72deg, rgb(142, 45, 226), rgb(74, 0, 224))",
         },
-        root: {},
+        containedSizeSmall: {
+          padding: "0.25rem 2rem",
+          fontWeight: 500,
+          fontFamily: "Montserrat",
+          fontStyle: "italic",
+          fontSize: "1.125rem",
+          background: "rgba(74, 0, 224, 1)",
+          borderRadius: "50px",
+          textTransform: "none",
+          color: "#F1EBFF",
+          ":disabled": {
+            color: "#F1EBFF",
+            background: "rgba(74, 0, 224, 1)",
+            
+          },
+        },
+      },
+    },
+    MuiCard: {
+      styleOverrides: {
+        root: {
+          background: "transparent",
+          borderRadius: 0,
+          boxShadow: "none",
+        },
       },
     },
   },
