@@ -10,21 +10,23 @@
   text-align: center;
   margin-bottom: 3.25rem;
 }
-
+.card-container {
+  width: 580px
+}
 .card {
-  
+  /* width: 100%; */
   display: grid;
   justify-content: flex-start;
   flex-direction: column;
 }
 
 .image-container {
-  position: relative;
-  overflow: visible;
-  width: 100%;
+  /* position: relative; */
+  /* overflow: visible; */
+  /* width: 100%; */
 }
-.image-container img{
-  width: 100%;
+.image-container img {
+  text-align: center;
 }
 
 .date {
@@ -33,5 +35,21 @@
   bottom: 0;
   left: 50%;
   transform: translate(-50%, -50%);
+}
+
+
+@media screen and (max-width: 632px) {
+  .image-container img {
+    transform: translateX(-17%);
+}
+}
+
+.load-Btn{
   
+  margin: 3rem auto 0;
+  text-align: center;
+}
+
+.description {
+  font-style: italic;
 }

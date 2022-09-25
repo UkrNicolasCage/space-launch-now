@@ -22,7 +22,7 @@ interface CardEvent {
 
 interface Launch {
   id: number;
-  image: string;
+  feature_image: string;
   landing: null;
   location: string;
   mission: string;
@@ -40,4 +40,12 @@ interface Launch {
   };
 }
 
-export type { Event, Launch, CardEvent };
+interface CardLaunch{
+  id: string;
+  name: string;
+  date: string;
+  logo?: string;
+
+}
+
+export type { Event, Launch, CardEvent, CardLaunch };

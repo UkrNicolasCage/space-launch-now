@@ -3,6 +3,7 @@
   overflow-x: hidden;
   background: transparent;
   box-shadow: none;
+  
 }
 
 .header-arows * {
@@ -13,17 +14,20 @@
 .header-arows *:hover {
   background: none;
 }
-.card{
+.card {
   width: 380px;
 
   display: grid;
   justify-content: flex-start;
   flex-direction: column;
-  align-items: inherit;
-   grid-gap: 1.25rem;
-  
+  grid-gap: 1.25rem;
+  text-align: left;
 }
 
 .date {
   justify-self: flex-start;
+}
+
+.card-container{
+    margin: 0 auto;
 }

@@ -57,7 +57,7 @@ export const RECards = () => {
     );
   });
   return (
-    <Grid container gap="1.25rem" justifyContent="space-between">
+    <Grid container gap="1.25rem" justifyContent="center">
       {isLoading ? placeholder : eventsCards}
     </Grid>
   );

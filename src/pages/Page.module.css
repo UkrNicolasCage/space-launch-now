@@ -13,7 +13,7 @@
     ),
     url("./../assets/bg_main.png") no-repeat;
   background-size: cover;
-  background-position: center;
+  background-position: 0 0;
 }
 
 .rocket-pg {

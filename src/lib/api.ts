@@ -1,8 +1,21 @@
-import { Event } from "./interfaces";
-import noImg from "../assets/no-img.png"
+import { Event, Launch } from "./interfaces";
+import noImg from "../assets/no-img.png";
 
 const adress = "https://spacelaunchnow.me/api/3.3.0/";
 
+const formatDate = (date: Date) => {
+  return date.toLocaleDateString("en-gb", {
+    month: "short",
+    day: "numeric",
+    year: "numeric",
+    hour: "numeric",
+    minute: "numeric",
+    localeMatcher: "best fit",
+
+    hour12: true,
+    // timeZone: "UTC",
+  });
+};
 const getRecentEvents = async (startIndex: number) => {
   const response = await fetch(
     adress + `event/upcoming/?limit=3&offset=${startIndex}`
@@ -11,35 +24,46 @@ const getRecentEvents = async (startIndex: number) => {
     throw new Error("Not found");
   }
   const data = await response.json();
-  // console.log(data.results);
 
   return data.results.map((event: Event) => {
-    const date = new Date(event.date).toLocaleDateString("en-gb", {
-      month: "short",
-      day: "numeric",
-      year: "numeric",
-      hour: "numeric",
-      minute: "numeric",
-      localeMatcher: "best fit",
+    const date = formatDate(new Date(event.date));
 
-      hour12: true,
-      // timeZone: "UTC",
-    });
     let logo = event.feature_image;
     if (
       event.feature_image ===
         "https://nyc3.digitaloceanspaces.com/spacelaunchnow-prod-east/media/event_images/default.png" ||
       !event
-    ){
+    ) {
       logo = noImg;
     }
-      return {
-        id: event.id,
-        logo,
-        date,
-        name: event.name,
-      };
+    return {
+      id: event.id,
+      logo,
+      date,
+      name: event.name,
+    };
   });
 };
 
-export { getRecentEvents };
+const getLaunches = async (startIndex: number, number: number) => {
+  const response = await fetch(
+    adress + `launch/upcoming/?limit=${number}&offset=${startIndex}`
+  );
+
+  if (!response.ok) {
+    throw new Error("Not found");
+  }
+  const data = await response.json();
+
+  return data.results.map((launch: Launch) => {
+    const date = formatDate(new Date(launch.window_start));
+    return {
+      id: launch.id,
+      logo: launch.feature_image,
+      date,
+      name: launch.name,
+    };
+  });
+};
+
+export { getRecentEvents, getLaunches };
