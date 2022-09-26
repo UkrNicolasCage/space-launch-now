@@ -8,8 +8,9 @@
 }
 
 .hero {
-  padding: 10rem 0 0 0;
+  padding: 15rem 0 0 0;
   text-align: center;
+  margin: 0 auto;
 }
 
 .hero h1 {
@@ -17,6 +18,7 @@
 }
 
 .main-tape {
+  /* background: #1c2056; */
   margin-top: 18rem;
   padding: 2.5rem 2rem;
 }
@@ -26,15 +28,9 @@
     width: 80%;
     margin: 25% auto 0;
   }
-  .hero {
-    padding: 0rem 5% 0 10%;
-    text-align: left;
-  }
+ 
   .hero h1 {
     font-size: 3.2rem;
-  }
-  .description {
-    width: 64%;
   }
   .main-tape {
     padding: 5rem 4rem;
@@ -44,10 +40,14 @@
 @media screen and (min-width: 1170px) {
   .center {
     width: 75%;
-    margin: 15% auto 0;
+    margin: 15% auto;
+  }
+  .description {
+    width: 75%;
   }
   .hero {
-    padding: 1rem 23% 0 10%;
+    padding: 0 10rem;
+    margin: 0 auto;  
   }
   .hero h1 {
     font-size: 4.75rem;
@@ -58,13 +58,15 @@
   }
 }
 
-@media screen and (max-width: 778px) {
-  .center {
-    width: 95%;
-    margin: auto 0;
-  }
+.btns *{
+  margin: 0 0.7rem;
+  text-transform: uppercase;
+}
 
-  .main-tape {
-    padding: 2.5rem 1rem;
-  }
+.icon {
+  text-align: center;
+}
+
+.main-column{
+  text-align: center;
 }

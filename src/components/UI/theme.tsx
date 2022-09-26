@@ -15,7 +15,7 @@ export const theme = createTheme({
   palette: {
     mode: "dark",
     primary: {
-      main: "#1C2056",
+      main: "#1c2056",
     },
     secondary: {
       main: "rgba(74, 0, 224, 1)",
@@ -25,11 +25,11 @@ export const theme = createTheme({
     },
   },
   typography: {
-    fontFamily: '"Roboto"',
+    fontFamily: "Roboto",
     h1: {
       fontFamily: "Montserrat",
       fontWeight: 800,
-      fontSize: "4.5rem",
+      fontSize: "76px",
       color: "#F1EBFF",
     },
     h2: {
@@ -43,6 +43,21 @@ export const theme = createTheme({
       fontWeight: 700,
       fontSize: "1.5rem",
       color: "#F1EBFF",
+    },
+    h4: {
+      fontFamily: "Montserrat",
+      fontSize: "1.5rem",
+    },
+    h5: {
+      fontSize: "17px",
+      fontFamily: "Roboto",
+      textTransform: "capitalize",
+    },
+    h6: {
+      fontSize: "17px",
+      fontFamily: "Roboto",
+      fontWeight: 700,
+      textTransform: "capitalize",
     },
   },
   components: {
@@ -65,8 +80,8 @@ export const theme = createTheme({
     MuiButton: {
       styleOverrides: {
         containedSizeLarge: {
-          fontSize: "1.25rem",
-          padding: "1rem 2.5rem",
+          fontSize: "1.2rem",
+          padding: "1.25rem 4.5rem",
           fontFamily: "Montserrat",
           borderRadius: "50px",
           fontWeight: 700,
@@ -87,7 +102,6 @@ export const theme = createTheme({
           ":disabled": {
             color: "#F1EBFF",
             background: "rgba(74, 0, 224, 1)",
-            
           },
         },
       },

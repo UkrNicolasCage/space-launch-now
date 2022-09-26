@@ -1,7 +1,7 @@
-import { Event, Launch } from "./interfaces";
+import { Event, Launch, Rocket } from "./interfaces";
 import noImg from "../assets/no-img.png";
 
-const adress = "https://spacelaunchnow.me/api/3.3.0/";
+const url = "https://spacelaunchnow.me/api/3.3.0/";
 
 const formatDate = (date: Date) => {
   return date.toLocaleDateString("en-gb", {
@@ -18,7 +18,7 @@ const formatDate = (date: Date) => {
 };
 const getRecentEvents = async (startIndex: number) => {
   const response = await fetch(
-    adress + `event/upcoming/?limit=3&offset=${startIndex}`
+    url + `event/upcoming/?limit=3&offset=${startIndex}`
   );
   if (!response.ok) {
     throw new Error("Not found");
@@ -47,7 +47,7 @@ const getRecentEvents = async (startIndex: number) => {
 
 const getLaunches = async (startIndex: number, number: number) => {
   const response = await fetch(
-    adress + `launch/upcoming/?limit=${number}&offset=${startIndex}`
+    url + `launch/upcoming/?limit=${number}&offset=${startIndex}`
   );
 
   if (!response.ok) {
@@ -62,8 +62,20 @@ const getLaunches = async (startIndex: number, number: number) => {
       logo: launch.feature_image,
       date,
       name: launch.name,
+      rocketId: launch.rocket.configuration.id,
     };
   });
 };
 
-export { getRecentEvents, getLaunches };
+const getRocket = async (id: string) => {
+  const response = await fetch(url + "launcher/" + id);
+
+  if (!response.ok) {
+    throw new Error("Not found");
+  }
+  const data = await response.json();
+  console.log(data);
+  
+};
+
+export { getRecentEvents, getLaunches, getRocket };

@@ -1,3 +1,4 @@
+
 .logo {
   position: absolute;
   width: 95px;
@@ -5,12 +6,12 @@
 }
 
 .logo-align-home {
-  margin: 2.75rem calc(100vw / 2 - 1rem);
+  margin: 2.75rem calc(100vw / 2 - 3rem);
   text-align: center;
 }
 
 .logo-align {
-  margin: 2.75rem calc((100vw / 3) * 2 - 1rem);
+  margin: 2.75rem calc((100vw / 2) - 3rem);
   margin-right: 10rem;
 }
 
@@ -22,7 +23,9 @@
   text-decoration: none;
   overflow: hidden;
 }
-
+.to-home-link:hover {
+  text-decoration: underline solid 4px;
+}
 .to-home-arrow {
   margin-right: 0.5rem;
   height: 2.5rem;
@@ -31,30 +34,33 @@
 .to-home-text {
   display: none;
 }
+
+.removed {
+  display: none;
+}
+
 @media screen and (min-width: 778px) {
+  .logo-align {
+    margin: 2.75rem calc((100vw / 3) * 2.3);
+    margin-right: 10rem;
+  }
+  .to-home-link {
+    margin: 2rem 15%;
+    font-size: 1.6rem;
+  }
   .to-home-text {
     display: inline;
   }
 
   .to-home-arrow {
     margin-right: 0.5rem;
-    height: 1.5rem;
+    height: 1.6rem;
     transform: translateY(0.25rem);
   }
 }
 @media screen and (min-width: 992px) {
   .to-home-link {
-    margin: 1.25rem 10%;
-    font-family: "Montserrat", sans-serif;
-    font-size: 1.75rem;
-    font-weight: 600;
-    text-decoration: none;
-    overflow: hidden;
-  }
-  .to-home-arrow {
-    margin-right: 0.75rem;
-    height: 2rem;
-    transform: translateY(0.4rem);
+    margin: 2rem 15%;
   }
 }
 
@@ -63,7 +69,7 @@
     height: 4.5rem;
   }
   .logo-align-home {
-    margin: 1.5rem calc(100vw / 2 - 1.25rem);
+    margin: 1.5rem calc(100vw / 2 - 2rem);
     text-align: center;
   }
 }

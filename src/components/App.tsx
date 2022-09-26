@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Route, Routes } from "react-router-dom";
 import { Box, ThemeProvider } from "@mui/material";
 
@@ -16,11 +16,11 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
       <Box className={`${styles.bg}`}> 
-        <Header/>
+        <Header />
         <Routes>
           <Route path="/" element={<MainPg />} />
-          <Route path="/launch" element={<LaunchPg />}/>
-          <Route path="/rocket" element={<RocketPg />}/>
+          <Route path="/launch/:launchId" element={<LaunchPg />}/>
+          <Route path="/rocket/:rocketId" element={<RocketPg />}/>
           <Route path="/event" element={<EventPg />}/>
         </Routes>
         <Bottom />

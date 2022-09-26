@@ -23,29 +23,53 @@ interface CardEvent {
 interface Launch {
   id: number;
   feature_image: string;
-  landing: null;
   location: string;
   mission: string;
   mission_type: string;
   name: string;
-  orbit: string;
   net: Date;
   url: string;
   launch_library_id: number;
   window_start: Date;
   window_end: Date;
-  status: {
-    id: number;
-    name: string;
+
+  rocket: {
+    configuration: {
+      id: number;
+    };
   };
 }
 
-interface CardLaunch{
+interface CardLaunch {
   id: string;
   name: string;
   date: string;
   logo?: string;
-
+  rocketId: number;
 }
 
-export type { Event, Launch, CardEvent, CardLaunch };
+interface Rocket {
+  id: number;
+  status: string;
+  image_url: string;
+
+  launcher_config: {
+    allias: string;
+    apogee: number;
+    description: string;
+    diametr: number;
+    family: string;
+    full_name: string;
+    gto_capacity: number;
+    launch_mass: number;
+    length: number;
+    leo_capacity: number;
+    max_stage: number;
+    min_stage: number;
+    name: string;
+    to_thrust: number;
+    variant: string;
+  };
+}
+
+export type { Event, Launch, CardEvent, CardLaunch, Rocket };

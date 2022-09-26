@@ -20,11 +20,7 @@
   flex-direction: column;
 }
 
-.image-container {
-  /* position: relative; */
-  /* overflow: visible; */
-  /* width: 100%; */
-}
+
 .image-container img {
   text-align: center;
 }
@@ -40,7 +36,7 @@
 
 @media screen and (max-width: 632px) {
   .image-container img {
-    transform: translateX(-17%);
+    transform: translateX(-20%);
 }
 }
 
@@ -52,4 +48,9 @@
 
 .description {
   font-style: italic;
+}
+
+.hover-text:hover{
+  text-decoration: underline solid 2px;
+  cursor: pointer;
 }

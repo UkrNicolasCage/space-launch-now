@@ -16,7 +16,9 @@ export const LaunchesCards = () => {
   const launches = useAppSelector((state) => state.launch.launches);
 
   useEffect(() => {
+    if(launches.length === 0){
     dispatch(getLaunchesCardsData());
+    }
   }, [dispatch]);
 
   const loadHandler = () => {
@@ -34,6 +36,7 @@ export const LaunchesCards = () => {
   }
 
   const cards = launches.map((launch) => {
+    
     return (
       <LaunchCard
         key={launch.id}
@@ -41,6 +44,7 @@ export const LaunchesCards = () => {
         logo={launch.logo!}
         launchName={launch.name}
         date={launch.date}
+        rocketId={launch.rocketId}
       />
     );
   });
