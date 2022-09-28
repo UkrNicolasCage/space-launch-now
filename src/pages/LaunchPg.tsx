@@ -1,5 +1,14 @@
+import { Box } from "@mui/material";
+// import { LaunchHero } from "../components/LaunchTape/LaunchHero";
 import styles from "./Page.module.css";
 
 export const LaunchPg = () => {
-  return <div className={`${styles["launch-pg"]} ${styles.page}`}>Launch</div>;
+  return (
+    <>
+      <Box className={`${styles["launch-pg"]} ${styles.page}`}>
+        {/* <LaunchHero /> */}
+      </Box>
+      <Box></Box>
+    </>
+  );
 };

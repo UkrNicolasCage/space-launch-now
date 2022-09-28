@@ -3,7 +3,17 @@ import { Box } from "@mui/system";
 
 import styles from "./RocketTape.module.css";
 
-export const RocketHero = () => {
+interface Props {
+  data:{
+    name: string;
+    description: string;
+    date: string;
+    providerName: string;
+    provederAbbrev: string;
+  }
+}
+
+export const RocketHero = (props: Props) => {
   return (
     <Box className={styles.center}>
       <Grid
@@ -14,22 +24,19 @@ export const RocketHero = () => {
         alignContent="center"
       >
         <Grid item>
-          <Typography variant="h1">Falcon 9 Block 5</Typography>
+          <Typography variant="h1">{props.data.name}</Typography>
         </Grid>
         <Grid item>
           <Typography variant="h3" fontWeight="400">
-            SpaceX (SpX)
+            {props.data.providerName} ({props.data.provederAbbrev})
           </Typography>
         </Grid>
         <Grid item>
-          <Typography variant="h3">May 11, 2018</Typography>
+          <Typography variant="h3">{props.data.date}</Typography>
         </Grid>
         <Grid item marginTop="2rem" className={styles.description}>
           <Typography variant="body1" textAlign="center">
-            Falcon 9 is a two-stage rocket designed and manufactured by SpaceX
-            for the reliable and safe transport of satellites and the Dragon
-            spacecraft into orbit. The Block 5 variant is the fifth major
-            interval aimed at improving upon the ability for rapid reusability.
+          {props.data.description}
           </Typography>
         </Grid>
       </Grid>

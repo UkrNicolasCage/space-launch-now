@@ -21,7 +21,7 @@ function App() {
           <Route path="/" element={<MainPg />} />
           <Route path="/launch/:launchId" element={<LaunchPg />}/>
           <Route path="/rocket/:rocketId" element={<RocketPg />}/>
-          <Route path="/event" element={<EventPg />}/>
+          <Route path="/event/:eventId" element={<EventPg />}/>
         </Routes>
         <Bottom />
       </Box>

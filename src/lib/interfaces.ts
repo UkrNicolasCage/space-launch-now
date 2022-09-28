@@ -49,26 +49,28 @@ interface CardLaunch {
 }
 
 interface Rocket {
+  alias: string;
+  apogee: number;
+  description: string;
+  diametr: number;
+  family: string;
+  full_name: string;
+  gto_capacity: string;
   id: number;
-  status: string;
-  image_url: string;
-
-  launcher_config: {
-    allias: string;
-    apogee: number;
-    description: string;
-    diametr: number;
-    family: string;
-    full_name: string;
-    gto_capacity: number;
-    launch_mass: number;
-    length: number;
-    leo_capacity: number;
-    max_stage: number;
-    min_stage: number;
+  launch_mass: number;
+  length: number;
+  maiden_flight: string | null;
+  image: string;
+  leo_capacity: number;
+  max_stage: number | null;
+  min_stage: number | null;
+  name: string;
+  to_thurst: number;
+  variant: string;
+  launch_service_provider: {
+    abbrev: string;
     name: string;
-    to_thrust: number;
-    variant: string;
+    type: string;
   };
 }
 

@@ -11,9 +11,7 @@ const formatDate = (date: Date) => {
     hour: "numeric",
     minute: "numeric",
     localeMatcher: "best fit",
-
     hour12: true,
-    // timeZone: "UTC",
   });
 };
 const getRecentEvents = async (startIndex: number) => {
@@ -68,14 +66,24 @@ const getLaunches = async (startIndex: number, number: number) => {
 };
 
 const getRocket = async (id: string) => {
-  const response = await fetch(url + "launcher/" + id);
+  const response = await fetch(url + "config/launcher/" + id);
 
   if (!response.ok) {
     throw new Error("Not found");
   }
-  const data = await response.json();
-  console.log(data);
-  
+  const data: Rocket = await response.json()!;
+
+  return data;
 };
 
-export { getRecentEvents, getLaunches, getRocket };
+const getEvent = async (id: number) => {
+  const response = await fetch(url + "event/" + id);
+   if (!response.ok) {
+     throw new Error("Not found");
+   }
+   const data: Rocket = await response.json()!;
+   console.log(data);
+   return data;
+};
+
+export { getRecentEvents, getLaunches, getRocket, getEvent };
