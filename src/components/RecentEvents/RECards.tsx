@@ -39,8 +39,6 @@ export const RECards = () => {
   const eventsCards = events.map((event) => {
       const moveToEventHandler = () => {
         navigate("/event/" + event.id)
-        getEvent(event.id);
-        
       };
 
     return (
@@ -52,6 +50,7 @@ export const RECards = () => {
             image={event.logo}
             width="380px"
             onClick={moveToEventHandler}
+            className={styles.hover}
           />
           <Button
             variant="contained"
@@ -61,7 +60,14 @@ export const RECards = () => {
           >
             {event.date}
           </Button>
-          <Typography variant="h3">{event.name}</Typography>
+          <Typography
+            variant="h3"
+            onClick={moveToEventHandler}
+            className={styles.hover}
+            width="99%"
+          >
+            {event.name}
+          </Typography>
         </Card>
       </Grid>
     );

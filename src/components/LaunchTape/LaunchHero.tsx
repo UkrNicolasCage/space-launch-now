@@ -1,8 +1,9 @@
 import { Button, Grid, Typography } from "@mui/material";
 import { Box } from "@mui/system";
 import React from "react";
+import { theme } from "../../theme";
 
-import styles from "./Event.module.css";
+import styles from "./Launch.module.css";
 
 export const LaunchHero = () => {
   return (
@@ -10,32 +11,23 @@ export const LaunchHero = () => {
       <Grid
         container
         className={styles.hero}
-        rowSpacing={6}
+        rowSpacing={3}
         direction="column"
         alignContent="center"
         alignItems="center"
       >
-        <Grid item width="80%">
+        <Grid item width="100%">
           <Typography variant="h1" alignSelf="center">
-            CRS-21 Dragon Docking
+            Falcon 9 Block 5 | Dragon CRS-2 SpX-21
           </Typography>
         </Grid>
         <Grid item>
-          <Button variant="contained" size="small" disabled>
-            Dec 6, 2020, 6:17 p.m.
-          </Button>
-        </Grid>
-        <Grid item width="70%">
-          <Typography variant="body1">
-            Following its launch atop a Falcon 9, the CRS-21 Dragon will
-            autonomously dock to the ISS, bringing crew supplies as well as
-            experiments.
+          <Typography variant="h3" alignSelf="center">
+            Go for Launch
           </Typography>
         </Grid>
-        <Grid item>
-          <Button variant="contained" size="large">
-            Read On Site
-          </Button>
+        <Grid item  xs={12}>
+          <Box bgcolor={theme.palette.secondary.main} padding="2rem 3rem"><Typography variant="h1" alignSelf="center">00 : 00 : 27: 41</Typography></Box>
         </Grid>
       </Grid>
     </Box>

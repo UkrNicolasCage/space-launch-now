@@ -1,7 +1,7 @@
 import { Button, Grid, Typography } from "@mui/material";
 import { Box } from "@mui/system";
 
-import { theme } from "../components/UI/theme";
+import { theme } from "../theme";
 import styles from "./Page.module.css";
 import { MainTape } from "../components/MainTape/MainTape";
 import { MainHero } from "../components/MainTape/MainHero";

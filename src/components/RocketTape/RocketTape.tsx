@@ -1,6 +1,6 @@
 import { Button, Grid, Paper } from "@mui/material";
 
-import { theme } from "../UI/theme";
+import { theme } from "../../theme";
 import styles from "./RocketTape.module.css";
 import { RocketInfo } from "./RocketInfo";
 

@@ -81,13 +81,13 @@ export const theme = createTheme({
       styleOverrides: {
         containedSizeLarge: {
           fontSize: "1.2rem",
-          padding: "1.25rem 4.5rem",
           fontFamily: "Montserrat",
           borderRadius: "50px",
           fontWeight: 700,
           textTransform: "capitalize",
           background:
             "linear-gradient(93.72deg, rgb(142, 45, 226), rgb(74, 0, 224))",
+          
         },
         containedSizeSmall: {
           padding: "0.25rem 2rem",
@@ -116,4 +116,7 @@ export const theme = createTheme({
       },
     },
   },
+  // breakpoints;{
+
+  // }
 });

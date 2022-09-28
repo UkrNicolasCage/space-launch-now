@@ -1,24 +1,29 @@
 import { Box, Button, Grid, Skeleton, Typography } from "@mui/material";
-import styles from "./Event.module.css";
+
 export const EventInfo = () => {
   return (
     <>
-      <Box margin="0rem 0rem 8rem">
+      <Box margin="0rem 0rem 6rem">
         <Skeleton height="35rem" variant="rectangular"></Skeleton>
       </Box>
       <Box textAlign="center">
         <Typography variant="h2" marginBottom="2rem">
           Related Information
         </Typography>
-        <Grid container direction="row" spacing={3} marginBottom = "2rem">
-          <Grid item xs={6}>
+        <Grid
+          container
+          direction={{ xs: "column", lg: "row" }}
+          spacing={3}
+          marginBottom="2rem"
+        >
+          <Grid item xs={12} lg={6}>
             <Skeleton
               variant="rectangular"
               width="580px"
               height="100%"
             ></Skeleton>
           </Grid>
-          <Grid item textAlign="left" xs={6}>
+          <Grid item textAlign="left" xs={12} lg={6}>
             <Grid container direction="column" spacing={1}>
               <Grid item>
                 <Typography variant="h3">

@@ -1,6 +1,6 @@
 import { Paper } from "@mui/material";
 import { RecentEvents } from "../RecentEvents/RecentEvents";
-import { theme } from "../UI/theme";
+import { theme } from "../../theme";
 
 import styles from "./Event.module.css";
 import { EventInfo } from "./EventInfo";

@@ -31,3 +31,8 @@
 .card-container{
     margin: 0 auto;
 }
+
+.hover:hover{
+ cursor: pointer;
+ text-decoration: underline solid 4px;
+}

@@ -1,28 +1,32 @@
 import { Button, Grid, Typography } from "@mui/material";
 import { Box } from "@mui/system";
+import { BigBtn } from "../UI/BigBtn";
+import { ALHero } from "../Layout/Hero";
 
 import styles from "./MainTape.module.css";
+import { Center } from "../Layout/Center";
 
 export const MainHero = () => {
   return (
-    <Box className={styles.center}>
-      <Grid container className={styles.hero} rowSpacing={7}>
+    <Center>
+      <ALHero container rowSpacing={5}>
         <Grid item xs={12}>
-          <Typography variant="h1" marginBottom="1.25rem">
+          <Typography variant="h1" >
             Upcoming Spaceflight Launches
           </Typography>
-          <br/>
+        </Grid>
+        <Grid item>
           <Typography variant="body1" className={styles.description}>
             View all launches available - including launches from the past and
             utilize powerful search filters.
           </Typography>
         </Grid>
         <Grid item xs={12}>
-          <Button variant="contained" size="large">
+          <BigBtn variant="contained" size="large">
             Show All Launches
-          </Button>
+          </BigBtn>
         </Grid>
-      </Grid>
-    </Box>
+      </ALHero>
+    </Center>
   );
 };
