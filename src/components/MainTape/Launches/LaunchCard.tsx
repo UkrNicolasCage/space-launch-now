@@ -1,9 +1,18 @@
-import { Box, Button, Card, CardMedia, Grid, Typography } from "@mui/material";
+import {
+  Box,
+  Button,
+  Card,
+  CardMedia,
+  Grid,
+  styled,
+  Typography,
+} from "@mui/material";
 
 import styles from "./Launches.module.css";
 import noImage from "../../../assets/no-img.png";
 import { useNavigate } from "react-router-dom";
 import { MouseEvent } from "react";
+import { LinkLabel } from "../../UI/LinkText";
 
 type Props = {
   id: string;
@@ -24,49 +33,36 @@ export const LaunchCard = (props: Props) => {
   const selectRocketHandler = (event: MouseEvent<HTMLDivElement>) => {
     navigate("/rocket/" + props.rocketId);
   };
+  const Date = styled(Button)(({ theme }) => ({
+    left: "50%",
+    transform: "translate(-50%, -50%)",
+  }));
 
   const [rocketName, launchName] = props.launchName.split("|");
   return (
-    <Grid item key={props.id} className={styles["card-container"]}>
-      <Card className={styles.card} key={props.id}>
-        <Box
-          className={styles["image-container"]}
-          onClick={selectLaunchHandler}
-        >
+    <Grid item key={props.id} width="580px">
+      <Card key={props.id}>
+        <Box onClick={selectLaunchHandler}>
           <CardMedia
             component="img"
-            sx={{ height: "16.5rem", width: "580px" }}
             image={noImage}
           />
-          <Button
+          <Date
             variant="contained"
             size="small"
             disabled
-            className={styles.date}
             style={{
               background:
                 "linear-gradient(93.72deg, rgb(142, 45, 226) 9.41%, rgb(74, 0, 224) 86.1%)",
             }}
           >
             {props.date}
-          </Button>
+          </Date>
         </Box>
 
         <Typography variant="h3" textAlign="center">
-          <Box
-            component="span"
-            onClick={selectRocketHandler}
-            className={styles["hover-text"]}
-          >
-            {rocketName}
-          </Box>
-          <Box
-            component="span"
-            onClick={selectLaunchHandler}
-            className={styles["hover-text"]}
-          >
-            |{launchName}
-          </Box>
+          <LinkLabel onClick={selectRocketHandler}>{rocketName}</LinkLabel>
+          <LinkLabel onClick={selectLaunchHandler}>|{launchName}</LinkLabel>
         </Typography>
       </Card>
     </Grid>

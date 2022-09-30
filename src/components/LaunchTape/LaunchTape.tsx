@@ -1,24 +1,24 @@
-import { Box, Paper, Skeleton } from "@mui/material";
+import { Skeleton } from "@mui/material";
 import { theme } from "../../theme";
+import { MediaContainerBottom, MediaContainerTop } from "../Layout/MediaContainer";
+import { Tape } from "../Layout/Tape";
 
-import styles from "./Launch.module.css";
 import { LaunchDetails } from "./LaunchDetails";
 import { LaunchOverview } from "./LaunchOverview";
 
+
+
 export const LaunchTape = () => {
   return (
-    <Paper
-      className={styles["main-tape"]}
-      style={{ backgroundColor: theme.palette.primary.main }}
-    >
-      <Box margin="0rem 0rem 8rem">
-        <Skeleton height="35rem" variant="rectangular"></Skeleton>
-      </Box>
+    <Tape style={{ backgroundColor: theme.palette.primary.main }}>
+      <MediaContainerTop>
+        <Skeleton height="100%" variant="rectangular"></Skeleton>
+      </MediaContainerTop>
       <LaunchOverview />
       <LaunchDetails />
-      <Box margin="8rem 0rem 0rem ">
-        <Skeleton height="35rem" variant="rectangular"></Skeleton>
-      </Box>
-    </Paper>
+      <MediaContainerBottom>
+        <Skeleton height="100%" variant="rectangular"></Skeleton>
+      </MediaContainerBottom>
+    </Tape>
   );
 };

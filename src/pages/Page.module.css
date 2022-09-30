@@ -1,59 +1,19 @@
-* {
-  margin: 0;
-  padding: 0;
-}
-.page {
-  min-height: 100vh;
-}
 .main-pg {
   background: linear-gradient(1.22deg, #181b48 3.9%, rgba(24, 27, 72, 0) 98.66%) ,
     url("./../assets/bg_main.png") no-repeat fixed;
-  background-size: cover;
-  background-position: center;
 }
 
 .rocket-pg {
-  min-height: 100vh;
-
   background: linear-gradient(1.22deg, #181b48 3.9%, rgba(24, 27, 72, 0) 98.66%),
     url("./../assets/bg_rocket.png") no-repeat fixed;
-  background-size: cover;
-  background-position: center;
 }
 
 .event-pg {
-  min-height: 100vh;
-
   background: linear-gradient(1.22deg, #181b48 3.9%, rgba(24, 27, 72, 0) 98.66%),
     url("./../assets/bg_event.png") no-repeat fixed;
-  background-size: cover;
-  background-position: center;
 }
 
 .launch-pg {
-  min-height: 100vh;
-
   background: linear-gradient(1.22deg, #181b48 3.9%, rgba(24, 27, 72, 0) 98.66%),
     url("./../assets/bg_launch.png") no-repeat fixed;
-  background-size: cover;
-  background-position: center;
-}
-
-.center {
-  width: 90%;
-  margin: -60% auto 0;
-}
-
-@media screen and (min-width: 778px) {
-  .center {
-    width: 80%;
-    margin: -15% auto 0;
-  }
-}
-
-@media screen and (min-width: 1170px) {
-  .center {
-    width: 75%;
-    margin: -10% auto 0;
-  }
 }

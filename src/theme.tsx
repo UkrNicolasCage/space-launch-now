@@ -5,7 +5,6 @@ declare module "@mui/material/styles" {
     gradient: Palette["primary"];
   }
 
-  // allow configuration using `createTheme`
   interface PaletteOptions {
     gradient?: PaletteOptions["primary"];
   }

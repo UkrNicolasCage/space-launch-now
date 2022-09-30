@@ -1,4 +1,6 @@
 import { Box, Button, Grid, Typography } from "@mui/material";
+import { BigBtn } from "../UI/BigBtn";
+import { TopicHeader } from "../UI/TopicHeader";
 
 import styles from "./Launch.module.css";
 
@@ -8,15 +10,15 @@ export const LaunchDetails = () => {
       <Grid
         container
         textAlign="center"
-        spacing={5}
+        spacing={2}
         direction="column"
         alignItems="center"
         marginTop="5rem"
       >
         <Grid item>
-          <Typography variant="h2" textTransform="uppercase">
+          <TopicHeader>
             Falcon 9 Block 5
-          </Typography>
+          </TopicHeader>
         </Grid>
         <Grid item textTransform="capitalize">
           <Box>
@@ -46,9 +48,9 @@ export const LaunchDetails = () => {
           aimed at improving upon the ability for rapid reusability.
         </Grid>
         <Grid item>
-          <Button variant="contained" size="large">
+          <BigBtn variant="contained" size="large">
             See Rocket Details
-          </Button>
+          </BigBtn>
         </Grid>
       </Grid>
     </Box>

@@ -1,10 +1,8 @@
-import { Button, Grid, Typography } from "@mui/material";
-import { Box } from "@mui/system";
-
-import { theme } from "../theme";
 import styles from "./Page.module.css";
 import { MainTape } from "../components/MainTape/MainTape";
 import { MainHero } from "../components/MainTape/MainHero";
+import { Page } from "../components/Layout/Page";
+import { MainMargins } from "../components/Layout/MainMargins";
 
 declare module "@mui/material/Button" {
   interface ButtonPropsColorOverrides {
@@ -15,12 +13,12 @@ declare module "@mui/material/Button" {
 export const MainPg = () => {
   return (
     <>
-      <Box className={`${styles.page} ${styles["main-pg"]}`}>
+      <Page className={styles["main-pg"]}>
         <MainHero/>
-      </Box>
-      <Box className={styles.center}>
+      </Page>
+      <MainMargins>
         <MainTape />
-      </Box>
+      </MainMargins>
     </>
   );
 };

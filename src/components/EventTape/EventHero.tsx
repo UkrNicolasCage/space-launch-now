@@ -1,14 +1,13 @@
 import { Button, Grid, Typography } from "@mui/material";
-import { Box } from "@mui/system";
-
-import styles from "./Event.module.css";
+import { Center } from "../Layout/Center";
+import { Hero } from "../Layout/Hero";
+import { BigBtn } from "../UI/BigBtn";
 
 export const EventHero = () => {
   return (
-    <Box className={styles.center}>
-      <Grid
+    <Center>
+      <Hero
         container
-        className={styles.hero}
         rowSpacing={4}
         direction="column"
         alignContent="center"
@@ -32,11 +31,11 @@ export const EventHero = () => {
           </Typography>
         </Grid>
         <Grid item>
-          <Button variant="contained" size="large">
+          <BigBtn variant="contained" size="large">
             Read On Site
-          </Button>
+          </BigBtn>
         </Grid>
-      </Grid>
-    </Box>
+      </Hero>
+    </Center>
   );
 };

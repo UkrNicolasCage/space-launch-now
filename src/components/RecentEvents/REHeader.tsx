@@ -2,17 +2,31 @@ import {
   AppBar,
   Grid,
   IconButton,
+  styled,
   StyledEngineProvider,
   Toolbar,
-  Typography,
 } from "@mui/material";
 
 import backArrowIcon from "../../assets/arrow-previous.svg";
 import nextArrowIcon from "../../assets/arrow-next.svg";
-import styles from "./RecentEvents.module.css";
-
 import { useAppDispatch, useAppSelector } from "../../store";
 import { getEventCardsData } from "../../store/event-slice";
+import { HeaderText } from "../UI/TopicHeader";
+
+const Header = styled(AppBar)(({ theme }) => ({
+  height: "auto",
+  background: "transparent",
+  boxShadow: "none",
+
+  [theme.breakpoints.down("sm")]: {
+    "& div div": {
+      justifyContent: "center",
+    },
+    "& div div div h2": {
+      display: "none",
+    },
+  },
+}));
 
 export const REHeader = () => {
   const dispatch = useAppDispatch();
@@ -20,22 +34,20 @@ export const REHeader = () => {
 
   const nextBtnHandler = () => {
     dispatch(getEventCardsData(lastIndex, "next", 3));
-  }
+  };
   const backBtnHandler = () => {
-     dispatch(getEventCardsData(lastIndex, "back", -3));
+    dispatch(getEventCardsData(lastIndex, "back", -3));
   };
 
   return (
     <StyledEngineProvider injectFirst>
-      <AppBar position="static" className={styles.header}>
+      <Header position="static">
         <Toolbar disableGutters>
           <Grid container justifyContent="space-between" padding="2rem 0">
             <Grid item>
-              <Typography variant="h2" component="span">
-                Recent Events
-              </Typography>
+              <HeaderText variant="h2">Recent Events</HeaderText>
             </Grid>
-            <Grid item className={styles["header-arows"]}>
+            <Grid item>
               <IconButton
                 disabled={lastIndex < 3 ? true : false}
                 onClick={backBtnHandler}
@@ -48,7 +60,7 @@ export const REHeader = () => {
             </Grid>
           </Grid>
         </Toolbar>
-      </AppBar>
+      </Header>
     </StyledEngineProvider>
   );
 };

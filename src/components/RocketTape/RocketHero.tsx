@@ -1,28 +1,21 @@
-import { Button, Grid, Typography } from "@mui/material";
-import { Box } from "@mui/system";
-
-import styles from "./RocketTape.module.css";
+import { Grid, Typography } from "@mui/material";
+import { Center } from "../Layout/Center";
+import { Hero } from "../Layout/Hero";
 
 interface Props {
-  data:{
+  data: {
     name: string;
     description: string;
     date: string;
     providerName: string;
     provederAbbrev: string;
-  }
+  };
 }
 
 export const RocketHero = (props: Props) => {
   return (
-    <Box className={styles.center}>
-      <Grid
-        container
-        className={styles.hero}
-        rowSpacing={3}
-        direction="column"
-        alignContent="center"
-      >
+    <Center>
+      <Hero container rowSpacing={3} direction="column">
         <Grid item>
           <Typography variant="h1">{props.data.name}</Typography>
         </Grid>
@@ -34,12 +27,10 @@ export const RocketHero = (props: Props) => {
         <Grid item>
           <Typography variant="h3">{props.data.date}</Typography>
         </Grid>
-        <Grid item marginTop="2rem" className={styles.description}>
-          <Typography variant="body1" textAlign="center">
-          {props.data.description}
-          </Typography>
+        <Grid item marginTop="2rem" color="#c0c0c0" width="80%">
+          <Typography variant="body1">{props.data.description}</Typography>
         </Grid>
-      </Grid>
-    </Box>
+      </Hero>
+    </Center>
   );
 };

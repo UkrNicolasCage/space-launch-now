@@ -1,27 +1,24 @@
 import { Box, Button, Grid, Skeleton, Typography } from "@mui/material";
+import { MediaContainerTop } from "../Layout/MediaContainer";
 
 export const EventInfo = () => {
   return (
     <>
-      <Box margin="0rem 0rem 6rem">
-        <Skeleton height="35rem" variant="rectangular"></Skeleton>
-      </Box>
+      <MediaContainerTop>
+        <Skeleton height="100%" variant="rectangular"></Skeleton>
+      </MediaContainerTop>
       <Box textAlign="center">
         <Typography variant="h2" marginBottom="2rem">
           Related Information
         </Typography>
         <Grid
           container
-          direction={{ xs: "column", lg: "row" }}
+          // direction={{ xs: "column", lg: "row" }}
           spacing={3}
           marginBottom="2rem"
         >
           <Grid item xs={12} lg={6}>
-            <Skeleton
-              variant="rectangular"
-              width="580px"
-              height="100%"
-            ></Skeleton>
+            <Skeleton variant="rectangular" height="100%"></Skeleton>
           </Grid>
           <Grid item textAlign="left" xs={12} lg={6}>
             <Grid container direction="column" spacing={1}>

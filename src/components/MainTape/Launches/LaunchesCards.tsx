@@ -6,7 +6,6 @@ import { useAppSelector } from "../../../store";
 import { LaunchCard } from "./LaunchCard";
 import { getLaunchesCardsData } from "../../../store/launch-slice";
 import loadIcon from "../../../assets/loading-launches.svg";
-import styles from "./Launches.module.css";
 
 export const LaunchesCards = () => {
   const dispatch = useAppDispatch();
@@ -54,11 +53,11 @@ export const LaunchesCards = () => {
       <Grid container columnGap={3} rowGap={8} justifyContent="center">
         {IsLoading ? placeholder : cards}
       </Grid>
-      <Box className={styles["load-Btn"]}>
+      <Box margin="3rem auto 0" textAlign="center">
         <IconButton onClick={loadHandler}>
           <img src={loadIcon} alt="load more launches" />
         </IconButton>
-        <Typography variant="body1" className={styles.description}>
+        <Typography variant="body1" fontStyle="italic">
           Load More
         </Typography>
       </Box>

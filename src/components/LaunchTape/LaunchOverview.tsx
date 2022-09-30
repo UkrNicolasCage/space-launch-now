@@ -1,16 +1,19 @@
 import { Box, Button, Grid, Typography } from "@mui/material";
-import { margin } from "@mui/system";
-
-import styles from "./Launch.module.css";
+import { TextBtn } from "../UI/TextBtn";
+import { TopicHeader } from "../UI/TopicHeader";
 
 export const LaunchOverview = () => {
   return (
     <Box>
-      <Grid container textAlign="center" spacing={4} direction="column" alignItems="center">
+      <Grid
+        container
+        textAlign="center"
+        spacing={2}
+        direction="column"
+        alignItems="center"
+      >
         <Grid item>
-          <Typography variant="h2" textTransform="uppercase">
-            overwiew
-          </Typography>
+          <TopicHeader>overwiew</TopicHeader>
         </Grid>
         <Grid item textTransform="capitalize">
           <Box>
@@ -33,50 +36,10 @@ export const LaunchOverview = () => {
           </Box>
         </Grid>
         <Grid item>
-          <Button
-            variant="contained"
-            size="small"
-            style={{
-              margin: "0.5rem",
-              background:
-                "linear-gradient(93.72deg, rgb(142, 45, 226) 9.41%, rgb(74, 0, 224) 86.1%)",
-            }}
-          >
-            LAUNCH COMPLEX 39A
-          </Button>
-          <Button
-            variant="contained"
-            size="small"
-            style={{
-              margin: "0.5rem",
-              background:
-                "linear-gradient(93.72deg, rgb(142, 45, 226) 9.41%, rgb(74, 0, 224) 86.1%)",
-            }}
-          >
-            LOW EARTH ORBIT
-          </Button>
-          <Button
-            variant="contained"
-            size="small"
-            style={{
-              margin: "0.5rem",
-              background:
-                "linear-gradient(93.72deg, rgb(142, 45, 226) 9.41%, rgb(74, 0, 224) 86.1%)",
-            }}
-          >
-            PROBABILITY: 60%
-          </Button>
-          <Button
-            variant="contained"
-            size="small"
-            style={{
-              margin: "0.5rem",
-              background:
-                "linear-gradient(93.72deg, rgb(142, 45, 226) 9.41%, rgb(74, 0, 224) 86.1%)",
-            }}
-          >
-            KENNEDY SPACE CENTER, FL, USA
-          </Button>
+          <TextBtn>LAUNCH COMPLEX 39A</TextBtn>
+          <TextBtn>LOW EARTH ORBIT</TextBtn>
+          <TextBtn>PROBABILITY: 60%</TextBtn>
+          <TextBtn>KENNEDY SPACE CENTER, FL, USA</TextBtn>
         </Grid>
         <Grid item width="75%">
           Falcon 9 is a two-stage rocket designed and manufactured by SpaceX for

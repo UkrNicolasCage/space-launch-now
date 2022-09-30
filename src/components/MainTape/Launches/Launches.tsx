@@ -1,18 +1,12 @@
-import { AppBar, Box, StyledEngineProvider, Typography } from "@mui/material";
+import { Box } from "@mui/material";
 import { LaunchesCards } from "./LaunchesCards";
 
-import styles from "./Launches.module.css";
+import { TopicHeader } from "../../UI/TopicHeader";
 
 export const Launches = () => {
   return (
-    <Box className={styles.launches}>
-      <StyledEngineProvider injectFirst>
-        <AppBar position="static" className={styles.header}>
-          <Typography variant="h2" component="span">
-            Spaceflight Launches
-          </Typography>
-        </AppBar>
-      </StyledEngineProvider>
+    <Box marginTop="1rem">
+      <TopicHeader>Spaceflight Launches</TopicHeader>
       <LaunchesCards />
     </Box>
   );

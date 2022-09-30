@@ -1,10 +1,8 @@
 import { Grid, Typography } from "@mui/material";
 
-import styles from "./RocketTape.module.css";
 import icon1 from "../../assets/rocket-icon-1.svg";
 import icon2 from "../../assets/rocket-icon-2.svg";
 import icon3 from "../../assets/rocket-icon-3.svg";
-
 
 interface Props {
   data: {
@@ -32,16 +30,22 @@ export const RocketInfo = (props: Props) => {
   const {data} = props;
   return (
     <Grid item>
-      <Grid container columnGap={10} justifyContent="space-between">
-        <Grid item xs={3}>
+      <Grid
+        container
+        columnGap={10}
+        rowGap={10}
+        justifyContent="space-between"
+        direction={{ sx: "column", lg: "row" }}
+      >
+        <Grid item xs={12} md={6} lg={3}>
           <Grid
             container
             direction="column"
             alignItems="center"
             rowGap={1.5}
-            className={styles["main-column"]}
+            textAlign="center"
           >
-            <Grid item className={styles.icon}>
+            <Grid item>
               <img src={icon1} alt="rocket icon" />
               <Typography variant="h3" marginTop="2rem">
                 Family
@@ -65,15 +69,15 @@ export const RocketInfo = (props: Props) => {
             </Grid>
           </Grid>
         </Grid>
-        <Grid item xs={3}>
+        <Grid item xs={12} md={6} lg={3}>
           <Grid
             container
             direction="column"
             alignItems="center"
-            className={styles["main-column"]}
+            textAlign="center"
             rowGap={1.5}
           >
-            <Grid item className={styles.icon}>
+            <Grid item>
               <img src={icon2} alt="docs icon" />
               <Typography variant="h3" marginTop="2rem">
                 Specifications
@@ -113,15 +117,15 @@ export const RocketInfo = (props: Props) => {
             </Grid>
           </Grid>
         </Grid>
-        <Grid item xs={3}>
+        <Grid item xs={12} md={6} lg={3}>
           <Grid
             container
             direction="column"
             alignItems="center"
-            className={styles["main-column"]}
+            textAlign="center"
             rowGap={1.5}
           >
-            <Grid item className={styles.icon}>
+            <Grid item>
               <img src={icon3} alt="launch icon" />
               <Typography variant="h3" marginTop="2rem">
                 PayLoad Capacity

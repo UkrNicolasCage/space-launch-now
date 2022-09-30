@@ -5,6 +5,7 @@ import { NavLink, useLocation } from "react-router-dom";
 import styles from "./Header.module.css";
 import logo from "../../assets/logo.svg";
 import toHomeArrow from "../../assets/to-home-arrow.svg";
+
 interface Props {
   children: React.ReactElement;
 }

@@ -1,8 +1,7 @@
-import { Button, Grid, Paper } from "@mui/material";
+import { Button, Grid } from "@mui/material";
 
-import { theme } from "../../theme";
-import styles from "./RocketTape.module.css";
 import { RocketInfo } from "./RocketInfo";
+import { Tape } from "../Layout/Tape";
 
 interface Props {
   bodyData: {
@@ -30,18 +29,16 @@ interface Props {
 
 export const RocketTape = (props: Props) => {
   return (
-    <Paper
-      className={styles["main-tape"]}
-      style={{ backgroundColor: theme.palette.primary.main }}
-    >
+    <Tape>
       <Grid
         container
         direction="column"
         rowGap={5}
         width="80%"
         margin=" 0 auto"
+        marginBottom="3rem"
       >
-        <Grid item alignSelf="center">
+        <Grid item alignSelf="center" marginTop="2rem" textAlign="center">
           <Button
             size="small"
             variant="contained"
@@ -61,7 +58,7 @@ export const RocketTape = (props: Props) => {
             disabled
             style={{
               textTransform: "uppercase",
-              margin: "0 0.7rem",
+              margin: "1rem  0.7rem",
               background:
                 "linear-gradient(93.72deg, rgb(142, 45, 226) 9.41%, rgb(74, 0, 224) 86.1%)",
             }}
@@ -82,8 +79,8 @@ export const RocketTape = (props: Props) => {
             {props.btnData.family}
           </Button>
         </Grid>
-        <RocketInfo data={props.bodyData}/>
+        <RocketInfo data={props.bodyData} />
       </Grid>
-    </Paper>
+    </Tape>
   );
 };

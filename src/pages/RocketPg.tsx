@@ -1,6 +1,7 @@
-import { Box } from "@mui/material";
 import { Fragment, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import { MainMargins } from "../components/Layout/MainMargins";
+import { Page } from "../components/Layout/Page";
 import { RocketHero } from "../components/RocketTape/RocketHero";
 import { RocketTape } from "../components/RocketTape/RocketTape";
 import { getRocket } from "../lib/api";
@@ -28,7 +29,7 @@ export const RocketPg = () => {
       hour12: true,
     }
   );
-  console.log(rocketData);
+
   const heroData = {
     name: rocketData?.full_name!,
     description: rocketData?.description!,
@@ -60,14 +61,15 @@ export const RocketPg = () => {
     family: rocketData?.family!,
     type: rocketData?.launch_service_provider.type!,
   };
+
   return (
     <Fragment>
-      <Box className={`${styles["rocket-pg"]} ${styles.page}`}>
+      <Page className={styles["rocket-pg"]}>
         <RocketHero data={heroData} />
-      </Box>
-      <Box className={styles.center}>
-        <RocketTape bodyData={bodyData} btnData={bodyBtnData }/>
-      </Box>
+      </Page>
+      <MainMargins>
+        <RocketTape bodyData={bodyData} btnData={bodyBtnData} />
+      </MainMargins>
     </Fragment>
   );
 };

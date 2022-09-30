@@ -2,15 +2,10 @@
   margin: 0;
   padding: 0;
   overflow-x: hidden;
-
   color: #fff;
-  
 }
-body{
-  font-family: "Roboto";
-}
+
 .bg {
-  /* position: absolute; */
   z-index: -99;
   min-height: 100vh;
   background:  rgba(24, 27, 72)  fixed;
