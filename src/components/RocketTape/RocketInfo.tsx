@@ -3,6 +3,7 @@ import { Grid, Typography } from "@mui/material";
 import icon1 from "../../assets/rocket-icon-1.svg";
 import icon2 from "../../assets/rocket-icon-2.svg";
 import icon3 from "../../assets/rocket-icon-3.svg";
+import { RocketInfoFiled } from "./RocketInfoField";
 
 interface Props {
   data: {
@@ -13,7 +14,7 @@ interface Props {
     minStage: number;
     maxStage: number;
     length: number;
-    diametr: number;
+    diameter: number;
     fairlingDiamentr: string;
     family: string;
     launchMass: number;
@@ -26,8 +27,35 @@ interface Props {
   };
 }
 
+const checkData = (data: string | number) => {
+  return data === 0 || data === "" || data === null || data === undefined;
+};
+
 export const RocketInfo = (props: Props) => {
-  const {data} = props;
+  const { data} = props;
+
+  const outputData = {
+    name: checkData(data.name) ? "-" : data.name,
+    variant: checkData(data.variant) ? "-" : data.variant,
+    fullName: checkData(data.fullName) ? "-" : data.fullName,
+    allias: checkData(data.allias) ? "-" : data.allias,
+    minStage: checkData(data.minStage) ? "-" : data.minStage,
+    maxStage: checkData(data.maxStage) ? "-" : data.maxStage,
+    length: checkData(data.length) ? "-" : data.length + " m",
+    diameter: checkData(data.diameter) ? "-" : data.diameter + " m",
+    fairlingDiamentr: checkData(data.fairlingDiamentr)
+      ? "-"
+      : data.fairlingDiamentr,
+    family: checkData(data.family) ? "-" : data.family,
+    launchMass: checkData(data.launchMass) ? "-" : data.launchMass + " T",
+    thrust: checkData(data.thrust) ? "-" : data.thrust + " kN",
+    apogee: checkData(data.apogee) ? "-" : data.apogee + " km",
+    launchCost: checkData(data.launchCost) ? "-" : data.launchCost,
+    leo: checkData(data.leo) ? "-" : data.leo + " kg",
+    gto: checkData(data.gto) ? "-" : data.gto + " kg",
+    directGeo: checkData(data.directGeo) ? "-" : data.directGeo,
+  };
+
   return (
     <Grid item>
       <Grid
@@ -52,20 +80,20 @@ export const RocketInfo = (props: Props) => {
               </Typography>
             </Grid>
             <Grid item>
-              <Typography variant="h5">name</Typography>
-              <Typography variant="h6">{data.name}</Typography>
+              <Typography variant="h5">Name</Typography>
+              <RocketInfoFiled >{outputData.name}</RocketInfoFiled>
             </Grid>
             <Grid item>
-              <Typography variant="h5">variant</Typography>
-              <Typography variant="h6">{data.variant}</Typography>
+              <Typography variant="h5">Variant</Typography>
+              <RocketInfoFiled>{outputData.variant}</RocketInfoFiled>
             </Grid>
             <Grid item>
-              <Typography variant="h5">full name</Typography>
-              <Typography variant="h6">{data.fullName}</Typography>
+              <Typography variant="h5">Full Name</Typography>
+              <RocketInfoFiled>{outputData.fullName}</RocketInfoFiled>
             </Grid>
             <Grid item>
               <Typography variant="h5">Alias</Typography>
-              <Typography variant="h6">{data.allias}</Typography>
+              <RocketInfoFiled>{outputData.allias}</RocketInfoFiled>
             </Grid>
           </Grid>
         </Grid>
@@ -85,35 +113,35 @@ export const RocketInfo = (props: Props) => {
             </Grid>
             <Grid item>
               <Typography variant="h5">minimum stage</Typography>
-              <Typography variant="h6">{data.minStage}</Typography>
+              <RocketInfoFiled>{outputData.minStage}</RocketInfoFiled>
             </Grid>
             <Grid item>
               <Typography variant="h5">max stage</Typography>
-              <Typography variant="h6">{data.maxStage}</Typography>
+              <RocketInfoFiled>{outputData.maxStage}</RocketInfoFiled>
             </Grid>
             <Grid item>
               <Typography variant="h5">length</Typography>
-              <Typography variant="h6">{data.length} m</Typography>
+              <RocketInfoFiled>{outputData.length}</RocketInfoFiled>
             </Grid>
             <Grid item>
               <Typography variant="h5">diametr</Typography>
-              <Typography variant="h6">{data.diametr} m</Typography>
+              <RocketInfoFiled>{outputData.diameter}</RocketInfoFiled>
             </Grid>
             <Grid item>
               <Typography variant="h5">fairing diametr</Typography>
-              <Typography variant="h6">-</Typography>
+              <RocketInfoFiled>{outputData.fairlingDiamentr}</RocketInfoFiled>
             </Grid>
             <Grid item>
               <Typography variant="h5">launch mass</Typography>
-              <Typography variant="h6">{data.launchMass} T</Typography>
+              <RocketInfoFiled>{outputData.launchMass}</RocketInfoFiled>
             </Grid>
             <Grid item>
               <Typography variant="h5">thrust</Typography>
-              <Typography variant="h6">{data.thrust} kN</Typography>
+              <RocketInfoFiled>{outputData.thrust}</RocketInfoFiled>
             </Grid>
             <Grid item>
               <Typography variant="h5">apogee (sub-Orbiral)</Typography>
-              <Typography variant="h6">{data.apogee} km</Typography>
+              <RocketInfoFiled>{outputData.apogee}</RocketInfoFiled>
             </Grid>
           </Grid>
         </Grid>
@@ -133,23 +161,23 @@ export const RocketInfo = (props: Props) => {
             </Grid>
             <Grid item>
               <Typography variant="h5">launch cost</Typography>
-              <Typography variant="h6">-</Typography>
+              <RocketInfoFiled>-</RocketInfoFiled>
             </Grid>
             <Grid item>
               <Typography variant="h5">low earth orbit</Typography>
-              <Typography variant="h6">{data.leo} kg</Typography>
+              <RocketInfoFiled>{outputData.leo}</RocketInfoFiled>
             </Grid>
             <Grid item>
               <Typography variant="h5">Geostationary Transfer Orbit</Typography>
-              <Typography variant="h6">{data.gto} kg</Typography>
+              <RocketInfoFiled>{outputData.gto}</RocketInfoFiled>
             </Grid>
             <Grid item>
               <Typography variant="h5">Direct Geostationary</Typography>
-              <Typography variant="h6">-</Typography>
+              <RocketInfoFiled>-</RocketInfoFiled>
             </Grid>
             <Grid item>
               <Typography variant="h5">Sub-Synchronous Capacity</Typography>
-              <Typography variant="h6">-</Typography>
+              <RocketInfoFiled>-</RocketInfoFiled>
             </Grid>
           </Grid>
         </Grid>

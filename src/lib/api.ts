@@ -72,18 +72,28 @@ const getRocket = async (id: string) => {
     throw new Error("Not found");
   }
   const data: Rocket = await response.json()!;
-
   return data;
 };
 
-const getEvent = async (id: number) => {
+const getEvent = async (id: string) => {
   const response = await fetch(url + "event/" + id);
-   if (!response.ok) {
-     throw new Error("Not found");
-   }
-   const data: Rocket = await response.json()!;
-   console.log(data);
-   return data;
+  if (!response.ok) {
+    throw new Error("Not found");
+  }
+
+  const data: Event = await response.json()!;
+  return data;
 };
 
-export { getRecentEvents, getLaunches, getRocket, getEvent };
+const getLaunch = async (id: string) => {
+  const response = await fetch(url + "launch/" + id);
+  if (!response.ok) {
+    throw new Error("Not found");
+  }
+
+  const data: Launch = await response.json();
+  // console.log(data);
+  return data;
+};
+
+export { getRecentEvents, getLaunches, getRocket, getEvent, getLaunch };

@@ -1,26 +1,39 @@
-import { Button, Grid, Typography } from "@mui/material";
-import { Box } from "@mui/system";
-import { theme } from "../../theme";
+import { Grid, Skeleton, Typography } from "@mui/material";
+import { useAppSelector } from "../../store";
 import { Center } from "../Layout/Center";
 import { Hero } from "../Layout/Hero";
 import { Timer } from "./Timer";
 
-export const LaunchHero = () => {
+interface Props {
+  data: {
+    name: string;
+    startTime: string;
+  };
+}
+
+export const LaunchHero = (props: Props) => {
+  const isLoading = useAppSelector((state) => state.ui.isLoading);
+  const { data } = props;
+
+  const placeHolder = (
+    <Skeleton variant="rounded" height="8rem" width="70rem" />
+  );
+
   return (
     <Center>
-      <Hero container rowSpacing={3} >
-        <Grid item>
-          <Typography variant="h1">
-            Falcon 9 Block 5 | Dragon CRS-2 SpX-21
-          </Typography>
+      <Hero container rowSpacing={3}>
+        <Grid item xs={12}>
+          {isLoading ? (
+            placeHolder
+          ) : (
+            <Typography variant="h1">{data.name}</Typography>
+          )}
         </Grid>
         <Grid item>
-          <Typography variant="h3">
-            Go for Launch
-          </Typography>
+          <Typography variant="h3">Go for Launch</Typography>
         </Grid>
         <Grid item xs={12}>
-          <Timer/>
+          <Timer />
         </Grid>
       </Hero>
     </Center>

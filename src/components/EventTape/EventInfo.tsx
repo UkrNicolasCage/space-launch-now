@@ -1,7 +1,24 @@
 import { Box, Button, Grid, Skeleton, Typography } from "@mui/material";
+import { useAppSelector } from "../../store";
 import { MediaContainerTop } from "../Layout/MediaContainer";
 
-export const EventInfo = () => {
+interface Props {
+  data: {
+    video: string;
+    launchName: string;
+    date: Date;
+    destination: string;
+    mission: string;
+    description: string;
+    img: string;
+  };
+}
+
+export const EventInfo = (props: Props) => {
+  const isLoading = useAppSelector((state) => state.ui.isLoading);
+  
+  const {data} = props;
+
   return (
     <>
       <MediaContainerTop>
@@ -11,14 +28,13 @@ export const EventInfo = () => {
         <Typography variant="h2" marginBottom="2rem">
           Related Information
         </Typography>
-        <Grid
-          container
-          // direction={{ xs: "column", lg: "row" }}
-          spacing={3}
-          marginBottom="2rem"
-        >
-          <Grid item xs={12} lg={6}>
-            <Skeleton variant="rectangular" height="100%"></Skeleton>
+        <Grid container spacing={3} marginBottom="2rem">
+          <Grid item xs={12} lg={6} overflow="hidden" >
+            {isLoading ? (
+              <Skeleton variant="rectangular" height="100%"></Skeleton>
+            ) : (
+              <img src={data.img} alt="event" height="100%" width="100%"/>
+            )}
           </Grid>
           <Grid item textAlign="left" xs={12} lg={6}>
             <Grid container direction="column" spacing={1}>

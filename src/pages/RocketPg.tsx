@@ -6,17 +6,22 @@ import { RocketHero } from "../components/RocketTape/RocketHero";
 import { RocketTape } from "../components/RocketTape/RocketTape";
 import { getRocket } from "../lib/api";
 import { Rocket } from "../lib/interfaces";
+import { useAppDispatch, useAppSelector } from "../store";
+import { loadData } from "../store/ui-slice";
 import styles from "./Page.module.css";
 
 export const RocketPg = () => {
+  const dispatch = useAppDispatch();
+
   const [rocketData, setRocketData] = useState<Rocket>();
   const { rocketId } = useParams<{ rocketId: string }>();
+
   useEffect(() => {
     const fetchRocketData = async () => {
       const data = await getRocket(rocketId as string);
       setRocketData(data);
     };
-    fetchRocketData();
+    dispatch(loadData(fetchRocketData));
   }, []);
 
   const heroDate = new Date(rocketData?.maiden_flight!).toLocaleDateString(
@@ -46,11 +51,11 @@ export const RocketPg = () => {
     minStage: rocketData?.min_stage!,
     maxStage: rocketData?.max_stage!,
     length: rocketData?.length!,
-    diametr: rocketData?.diametr!,
+    diameter: rocketData?.diameter!,
     fairlingDiamentr: "-"!,
     family: rocketData?.family!,
     launchMass: rocketData?.launch_mass!,
-    thrust: rocketData?.to_thurst!,
+    thrust: rocketData?.to_thrust!,
     apogee: rocketData?.apogee!,
     launchCost: "-"!,
     leo: rocketData?.leo_capacity!,
@@ -61,14 +66,17 @@ export const RocketPg = () => {
     family: rocketData?.family!,
     type: rocketData?.launch_service_provider.type!,
   };
-
+  
   return (
     <Fragment>
       <Page className={styles["rocket-pg"]}>
         <RocketHero data={heroData} />
       </Page>
       <MainMargins>
-        <RocketTape bodyData={bodyData} btnData={bodyBtnData} />
+        <RocketTape
+          bodyData={bodyData}
+          btnData={bodyBtnData}
+        />
       </MainMargins>
     </Fragment>
   );

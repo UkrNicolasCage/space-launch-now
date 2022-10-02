@@ -1,13 +1,23 @@
 import { RecentEvents } from "../RecentEvents/RecentEvents";
-import { theme } from "../../theme";
-
 import { EventInfo } from "./EventInfo";
 import { Tape } from "../Layout/Tape";
 
-export const EventTape = () => {
+interface Props {
+  data: {
+    video: string;
+    launchName: string;
+    date: Date;
+    destination: string;
+    mission: string;
+    description: string;
+    img: string;
+  };
+}
+
+export const EventTape = (props: Props) => {
   return (
     <Tape>
-      <EventInfo />
+      <EventInfo data={props.data}/>
       <RecentEvents />
     </Tape>
   );

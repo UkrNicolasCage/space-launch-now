@@ -4,7 +4,8 @@ import { ReactElement } from "react";
 
 const TextBtnStyles = styled(Button)(({ theme }) => ({
   margin: "0.5rem",
-  textTransform: "uppercase"
+  textTransform: "uppercase",
+  color: "#fff"
 }));
 
 interface Props {

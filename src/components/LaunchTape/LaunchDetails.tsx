@@ -1,10 +1,29 @@
-import { Box, Button, Grid, Typography } from "@mui/material";
+import { Box, Grid, Typography } from "@mui/material";
+import { useNavigate } from "react-router-dom";
+import { useAppSelector } from "../../store";
+import { BodyPlaceholder } from "../RocketTape/BodyPlaceholder";
 import { BigBtn } from "../UI/BigBtn";
 import { TopicHeader } from "../UI/TopicHeader";
 
-import styles from "./Launch.module.css";
+interface Props {
+  data: {
+    name: string;
+    familly: string;
+    configuration: string;
+    description: string;
+    rocketId: number;
+  };
+}
 
-export const LaunchDetails = () => {
+export const LaunchDetails = (props: Props) => {
+  const { data } = props;
+  const isLoading = useAppSelector((state) => state.ui.isLoading);
+  const navigate = useNavigate();
+
+  const seeRocketHandler = ()=> {
+    navigate("/rocket/" + data.rocketId)
+  }
+
   return (
     <Box>
       <Grid
@@ -15,43 +34,44 @@ export const LaunchDetails = () => {
         alignItems="center"
         marginTop="5rem"
       >
-        <Grid item>
-          <TopicHeader>
-            Falcon 9 Block 5
-          </TopicHeader>
-        </Grid>
-        <Grid item textTransform="capitalize">
-          <Box>
-            <Typography variant="body1" component="span" fontWeight={700}>
-              Destination:{" "}
-            </Typography>
+        {isLoading ? (
+          <BodyPlaceholder variant="rounded" height="20rem" width="60rem" />
+        ) : (
+          <>
+            <Grid item>
+              <TopicHeader>{data.name}</TopicHeader>
+            </Grid>
+            <Grid item textTransform="capitalize">
+              <Box>
+                <Typography variant="body1" component="span" fontWeight={700}>
+                  Familly:
+                </Typography>
 
-            <Typography variant="body1" component="span">
-              Low Earth Orbit
-            </Typography>
-          </Box>
-          <Box>
-            <Typography variant="body1" fontWeight={700} component="span">
-              Mission:{" "}
-            </Typography>
+                <Typography variant="body1" component="span">
+                  {data.familly}
+                </Typography>
+              </Box>
+              <Box>
+                <Typography variant="body1" fontWeight={700} component="span">
+                  Configuration: 
+                </Typography>
 
-            <Typography variant="body1" component="span">
-              Resupply
-            </Typography>
-          </Box>
-        </Grid>
+                <Typography variant="body1" component="span">
+                  {data.configuration}
+                </Typography>
+              </Box>
+            </Grid>
 
-        <Grid item width="75%">
-          Falcon 9 is a two-stage rocket designed and manufactured by SpaceX for
-          the reliable and safe transport of satellites and the Dragon
-          spacecraft into orbit. The Block 5 variant is the fifth major interval
-          aimed at improving upon the ability for rapid reusability.
-        </Grid>
-        <Grid item>
-          <BigBtn variant="contained" size="large">
-            See Rocket Details
-          </BigBtn>
-        </Grid>
+            <Grid item width="75%">
+              <Typography>{data.description}</Typography>
+            </Grid>
+            <Grid item>
+              <BigBtn variant="contained" size="large" onClick={seeRocketHandler}>
+                See Rocket Details
+              </BigBtn>
+            </Grid>
+          </>
+        )}
       </Grid>
     </Box>
   );

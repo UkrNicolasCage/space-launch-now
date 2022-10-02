@@ -12,6 +12,7 @@ interface Event {
   video_url: string;
   launches: Launch[];
   expedition: [];
+  
 }
 interface CardEvent {
   id: number;
@@ -23,20 +24,33 @@ interface CardEvent {
 interface Launch {
   id: number;
   feature_image: string;
-  location: string;
-  mission: string;
-  mission_type: string;
+  slug: string;
+  pad:{
+    location:{
+      name: string;
+    };
+    latitude: string;
+    longitude: string;
+    map_url: string;
+    name: string;
+    probability: string   
+  };
+  mission: {
+    orbit: string;
+    description: string;
+    type: string;
+  };
+
   name: string;
   net: Date;
   url: string;
   launch_library_id: number;
-  window_start: Date;
+  window_start: string;
   window_end: Date;
 
   rocket: {
-    configuration: {
-      id: number;
-    };
+    configuration: Rocket;
+    
   };
 }
 
@@ -52,7 +66,7 @@ interface Rocket {
   alias: string;
   apogee: number;
   description: string;
-  diametr: number;
+  diameter: number;
   family: string;
   full_name: string;
   gto_capacity: string;
@@ -65,7 +79,7 @@ interface Rocket {
   max_stage: number | null;
   min_stage: number | null;
   name: string;
-  to_thurst: number;
+  to_thrust: number;
   variant: string;
   launch_service_provider: {
     abbrev: string;

@@ -1,7 +1,9 @@
-import { Button, Grid } from "@mui/material";
+import { Grid, Skeleton } from "@mui/material";
 
 import { RocketInfo } from "./RocketInfo";
 import { Tape } from "../Layout/Tape";
+import { TextBtn } from "../UI/TextBtn";
+import { useAppSelector } from "../../store";
 
 interface Props {
   bodyData: {
@@ -12,7 +14,7 @@ interface Props {
     minStage: number;
     maxStage: number;
     length: number;
-    diametr: number;
+    diameter: number;
     fairlingDiamentr: string;
     family: string;
     launchMass: number;
@@ -23,11 +25,12 @@ interface Props {
     gto: string;
     directGeo: string;
   };
-
   btnData: { family: string; type: string };
 }
 
 export const RocketTape = (props: Props) => {
+  const isLoading = useAppSelector((state) => state.ui.isLoading);
+  
   return (
     <Tape>
       <Grid
@@ -39,45 +42,15 @@ export const RocketTape = (props: Props) => {
         marginBottom="3rem"
       >
         <Grid item alignSelf="center" marginTop="2rem" textAlign="center">
-          <Button
-            size="small"
-            variant="contained"
-            disabled
-            style={{
-              background:
-                "linear-gradient(93.72deg, rgb(142, 45, 226) 9.41%, rgb(74, 0, 224) 86.1%)",
-              textTransform: "uppercase",
-              margin: "0 0.7rem",
-            }}
-          >
-            Active
-          </Button>
-          <Button
-            size="small"
-            variant="contained"
-            disabled
-            style={{
-              textTransform: "uppercase",
-              margin: "1rem  0.7rem",
-              background:
-                "linear-gradient(93.72deg, rgb(142, 45, 226) 9.41%, rgb(74, 0, 224) 86.1%)",
-            }}
-          >
-            {props.btnData.type}
-          </Button>
-          <Button
-            size="small"
-            variant="contained"
-            disabled
-            style={{
-              textTransform: "uppercase",
-              margin: "0 0.7rem",
-              background:
-                "linear-gradient(93.72deg, rgb(142, 45, 226) 9.41%, rgb(74, 0, 224) 86.1%)",
-            }}
-          >
-            {props.btnData.family}
-          </Button>
+          {isLoading ? (
+            <Skeleton variant="rounded" width="40rem" height="3rem" />
+          ) : (
+            <>
+              <TextBtn>Active</TextBtn>
+              <TextBtn>{props.btnData.type}</TextBtn>
+              <TextBtn>{props.btnData.family}</TextBtn>
+            </>
+          )}
         </Grid>
         <RocketInfo data={props.bodyData} />
       </Grid>

@@ -24,7 +24,7 @@ export const theme = createTheme({
     },
   },
   typography: {
-    fontFamily: "Roboto",
+    
     h1: {
       fontFamily: "Montserrat",
       fontWeight: 800,
@@ -56,7 +56,7 @@ export const theme = createTheme({
       fontSize: "17px",
       fontFamily: "Roboto",
       fontWeight: 700,
-      textTransform: "capitalize",
+      textTransform: "none",
     },
   },
   components: {
