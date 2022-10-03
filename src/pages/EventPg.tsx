@@ -26,7 +26,7 @@ export const EventPg = () => {
     };
 
     dispatch(loadData(fetchEventData));
-  }, [dispatch, loadData, getLaunch, getEvent]);
+  }, [dispatch, loadData, getLaunch, getEvent, eventId]);
 
   useEffect(() => {
     window.scrollTo({ top: 0 });
