@@ -13,7 +13,6 @@ export const LaunchesCards = () => {
   const lastIndex = useAppSelector((state) => state.launch.lastIndex);
   const IsLoading = useAppSelector((state) => state.launch.isLoading);
   const launches = useAppSelector((state) => state.launch.launches);
-
   useEffect(() => {
     if(launches.length === 0){
     dispatch(getLaunchesCardsData());

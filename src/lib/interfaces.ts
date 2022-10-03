@@ -10,9 +10,8 @@ interface Event {
   };
   url: string;
   video_url: string;
-  launches: Launch[];
+  launches: LaunchShort[];
   expedition: [];
-  
 }
 interface CardEvent {
   id: number;
@@ -25,15 +24,15 @@ interface Launch {
   id: number;
   feature_image: string;
   slug: string;
-  pad:{
-    location:{
+  pad: {
+    location: {
       name: string;
     };
     latitude: string;
     longitude: string;
     map_url: string;
     name: string;
-    probability: string   
+    probability: string;
   };
   mission: {
     orbit: string;
@@ -50,10 +49,26 @@ interface Launch {
 
   rocket: {
     configuration: Rocket;
-    
   };
 }
 
+interface LaunchShort {
+  id: string;
+  image: string;
+  landing: string;
+  landing_success: number;
+  launcher: string;
+  location: string;
+  mission: string;
+  mission_type: string;
+  name: string;
+  net: string;
+  orbit: string;
+  pad: string;
+  slug: string;
+  url: string;
+  window_start: string;
+}
 interface CardLaunch {
   id: string;
   name: string;
@@ -88,4 +103,4 @@ interface Rocket {
   };
 }
 
-export type { Event, Launch, CardEvent, CardLaunch, Rocket };
+export type { Event, Launch, LaunchShort, CardEvent, CardLaunch, Rocket };

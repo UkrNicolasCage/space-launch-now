@@ -6,7 +6,7 @@ interface Props {
   data: {
     video: string;
     launchName: string;
-    date: Date;
+    date: string;
     destination: string;
     mission: string;
     description: string;

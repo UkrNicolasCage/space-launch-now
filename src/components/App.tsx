@@ -1,4 +1,4 @@
-import { Route, Routes } from "react-router-dom";
+import { Navigate, Route, Routes } from "react-router-dom";
 import { Box, ThemeProvider } from "@mui/material";
 
 import { Header } from "./Layout/Header";
@@ -20,6 +20,7 @@ function App() {
           <Route path="/launch/:launchId" element={<LaunchPg />} />
           <Route path="/rocket/:rocketId" element={<RocketPg />} />
           <Route path="/event/:eventId" element={<EventPg />} />
+          <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
         <Bottom />
       </Box>

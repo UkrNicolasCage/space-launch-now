@@ -31,7 +31,6 @@ export const LaunchPg = () => {
     launchtData?.pad.probability === null
       ? "obscurely"
       : launchtData?.pad.probability! + "%";
-  const rocket = launchtData?.rocket.configuration!;
 
   const tapeData = {
     overview: {

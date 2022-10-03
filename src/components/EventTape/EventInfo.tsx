@@ -6,7 +6,7 @@ interface Props {
   data: {
     video: string;
     launchName: string;
-    date: Date;
+    date: string;
     destination: string;
     mission: string;
     description: string;
@@ -16,8 +16,8 @@ interface Props {
 
 export const EventInfo = (props: Props) => {
   const isLoading = useAppSelector((state) => state.ui.isLoading);
-  
-  const {data} = props;
+
+  const { data } = props;
 
   return (
     <>
@@ -29,45 +29,63 @@ export const EventInfo = (props: Props) => {
           Related Information
         </Typography>
         <Grid container spacing={3} marginBottom="2rem">
-          <Grid item xs={12} lg={6} overflow="hidden" >
+          <Grid
+            item
+            xs={12}
+            lg={6}
+            overflow="hidden"
+            height={{ xs: "26rem", md: "36rem", lg: "26rem", xl: "22.06rem" }}
+          >
             {isLoading ? (
               <Skeleton variant="rectangular" height="100%"></Skeleton>
             ) : (
-              <img src={data.img} alt="event" height="100%" width="100%"/>
+              <img src={data.img} alt="event" height="100%" width="100%" />
             )}
           </Grid>
           <Grid item textAlign="left" xs={12} lg={6}>
-            <Grid container direction="column" spacing={1}>
+            <Grid container direction="column" spacing={2}>
               <Grid item>
-                <Typography variant="h3">
-                  Long March 3B/E | Gaofen 14
-                </Typography>
+                {isLoading ? (
+                  <Skeleton variant="rectangular" height="1.5rem" width="80%"></Skeleton>
+                ) : (
+                  <Typography variant="h3">
+                    {data.launchName}
+                  </Typography>
+                )}
               </Grid>
               <Grid item marginBottom="1rem">
+                {isLoading ? (
+                  <Skeleton variant="rectangular" height="2.5rem" width="50%"></Skeleton>
+                ) : (
                 <Button variant="contained" size="small">
-                  Dec. 6, 2020, 6:17 p.m.
-                </Button>
+                  {data.date}
+                </Button>)}
               </Grid>
               <Grid item>
                 <Typography variant="body1" fontWeight={700}>
                   Destination:
                 </Typography>
-                <Typography variant="body1">Low Earth Orbit</Typography>
+                {isLoading ? (
+                  <Skeleton variant="rectangular" height="1rem" width="50%"></Skeleton>
+                ) : (
+                <Typography variant="body1">{data.destination}</Typography>)}
               </Grid>
               <Grid item>
                 <Typography variant="body1" fontWeight={700}>
                   Mission:
                 </Typography>
-                <Typography variant="body1">Resupply</Typography>
+                {isLoading ? (
+                  <Skeleton variant="rectangular" height="1rem" width="50%"></Skeleton>
+                ) : (
+                <Typography variant="body1">{data.mission}</Typography>)}
               </Grid>
               <Grid item>
+                {isLoading ? (
+                  <Skeleton variant="rectangular" height="6rem" width="100%"></Skeleton>
+                ) : (
                 <Typography variant="body1">
-                  SpaceX will launch the first cargo variant of its Dragon 2
-                  spacecraft on their 21st commercial resupply services mission
-                  to the International Space Station. The flight will be
-                  conducted under the second Commercial Resupply Services
-                  contract with NASA. Dragon will be filled with supplies
-                </Typography>
+                  {data.description}
+                </Typography>)}
               </Grid>
             </Grid>
           </Grid>

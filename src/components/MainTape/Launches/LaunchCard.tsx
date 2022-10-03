@@ -8,7 +8,6 @@ import {
   Typography,
 } from "@mui/material";
 
-import styles from "./Launches.module.css";
 import noImage from "../../../assets/no-img.png";
 import { useNavigate } from "react-router-dom";
 import { MouseEvent } from "react";

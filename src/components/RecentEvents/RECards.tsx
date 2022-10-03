@@ -21,7 +21,6 @@ export const RECards = () => {
   const events = useAppSelector((state) => state.event.events);
   const isLoading = useAppSelector((state) => state.event.isLoading);
   const lastIndex = useAppSelector((state) => state.event.lastIndex);
-
   const AdaptCard = styled(Card)(({ theme }) => ({
     maxWidth: "23rem",
     display: "grid",
@@ -44,7 +43,7 @@ export const RECards = () => {
 
   const eventsCards = events.map((event) => {
     const moveToEventHandler = () => {
-      navigate("/event/" + event.id);
+      navigate("/event/" + event.id, { state: {}});
     };
 
     return (

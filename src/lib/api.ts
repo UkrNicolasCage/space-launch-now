@@ -82,6 +82,7 @@ const getEvent = async (id: string) => {
   }
 
   const data: Event = await response.json()!;
+  console.log(data)
   return data;
 };
 
@@ -92,8 +93,7 @@ const getLaunch = async (id: string) => {
   }
 
   const data: Launch = await response.json();
-  // console.log(data);
   return data;
 };
 
-export { getRecentEvents, getLaunches, getRocket, getEvent, getLaunch };
+export { getRecentEvents, getLaunches, getRocket, getEvent, getLaunch, formatDate };

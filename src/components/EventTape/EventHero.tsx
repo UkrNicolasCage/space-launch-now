@@ -7,7 +7,7 @@ import { BigBtn } from "../UI/BigBtn";
 interface Props {
   data: {
     name: string;
-    date: Date;
+    date: string;
     description: string;
     siteUrl: string;
   };
@@ -37,7 +37,7 @@ export const EventHero = (props: Props) => {
             <Skeleton variant="rounded" height="3rem" width="20rem" />
           ) : (
             <Button variant="contained" size="small" disabled>
-              Dec 6, 2020, 6:17 p.m.
+              {data.date}
             </Button>
           )}
         </Grid>
