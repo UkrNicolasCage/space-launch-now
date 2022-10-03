@@ -1,11 +1,16 @@
-import { Skeleton,Typography } from "@mui/material";
+import { Skeleton, Typography } from "@mui/material";
+import { useEffect, useState } from "react";
+import { useAppSelector } from "../../store";
 
 import { TimerContainer } from "./TimerContainer";
+
+interface Props {
+  time: string;
+}
 
 const calcDate = (startDate: string) => {
   const today = new Date();
   const target = new Date(startDate);
-
   return (+target - +today) / 1000;
 };
 
@@ -24,21 +29,46 @@ const formatOutput = (timeLeft: number) => {
   };
 };
 
-export const Timer = () => {
-
+export const Timer = (props: Props) => {
+  const isLoading = useAppSelector((state) => state.ui.isLoading);
+  const [time, setTime] = useState(0);
+  const [startTimer, setStartTimer] = useState(false);
   const placeHolder = (
     <Skeleton variant="rounded" height="4.5rem" width="35rem" />
   );
 
- 
+  useEffect(() => {
+    if (!isLoading) {
+      const timeSec = calcDate(props.time);
+      if (!Number.isNaN(timeSec)) {
+        setTime(timeSec);
+        setStartTimer(true);
+      }
+    }
+  }, [props.time, isLoading]);
+
+  useEffect(() => {
+    
+      const interval = setInterval(() => {
+        setTime((prev) =>{ 
+          return prev - 1});
+
+      }, 1000);
+    if (startTimer) {
+      clearInterval(interval);
+    }
+  }, [startTimer]);
+
+  
+  const formattedTime = formatOutput(time);
   return (
     <TimerContainer>
-      {!false? (
+      {isLoading ? (
         placeHolder
       ) : (
         <Typography variant="h1">
-          {" "}
-          {/* {time.days} : {time.hours} : {time.minutes} : {time.seconds} */}
+          {formattedTime.days} : {formattedTime.hours} : {formattedTime.minutes}{" "}
+          : {formattedTime.seconds}
         </Typography>
       )}
     </TimerContainer>

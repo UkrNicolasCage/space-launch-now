@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { useLocation, useNavigate, useParams } from "react-router-dom";
 import { EventHero } from "../components/EventTape/EventHero";
 import { EventTape } from "../components/EventTape/EventTape";
 import { MainMargins } from "../components/Layout/MainMargins";
@@ -16,7 +16,7 @@ export const EventPg = () => {
   const [launchData, setLanchData] = useState<Launch>();
 
   const dispatch = useAppDispatch();
-  
+
   useEffect(() => {
     const fetchEventData = async () => {
       const eventData: Event = await getEvent(eventId as string);

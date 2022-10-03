@@ -16,7 +16,7 @@ export const LaunchHero = (props: Props) => {
   const { data } = props;
 
   const placeHolder = (
-    <Skeleton variant="rounded" height="8rem" width="70rem" />
+    <Skeleton variant="rounded" height="14rem" width="70rem" />
   );
 
   return (
@@ -33,7 +33,7 @@ export const LaunchHero = (props: Props) => {
           <Typography variant="h3">Go for Launch</Typography>
         </Grid>
         <Grid item xs={12}>
-          <Timer />
+          <Timer time={props.data.startTime}/>
         </Grid>
       </Hero>
     </Center>

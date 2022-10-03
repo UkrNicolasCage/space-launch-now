@@ -31,7 +31,7 @@ interface Props {
 
 export const LaunchTape = (props: Props) => {
   const { overview, details } = props.data;
-  console.log(details);
+
   return (
     <Tape style={{ backgroundColor: theme.palette.primary.main }}>
       <MediaContainerTop>
