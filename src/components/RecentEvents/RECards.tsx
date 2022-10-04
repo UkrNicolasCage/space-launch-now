@@ -14,13 +14,6 @@ import { getEventCardsData } from "../../store/event-slice";
 import { useNavigate } from "react-router-dom";
 import { LinkLabel } from "../UI/LinkText";
 
-export const RECards = () => {
-  const navigate = useNavigate();
-  const dispatch = useAppDispatch();
-
-  const events = useAppSelector((state) => state.event.events);
-  const isLoading = useAppSelector((state) => state.event.isLoading);
-  const lastIndex = useAppSelector((state) => state.event.lastIndex);
   const AdaptCard = styled(Card)(({ theme }) => ({
     maxWidth: "23rem",
     display: "grid",
@@ -29,6 +22,16 @@ export const RECards = () => {
     paddingBottom: "1rem",
   }));
   
+
+export const RECards = () => {
+  const navigate = useNavigate();
+  const dispatch = useAppDispatch();
+
+  const events = useAppSelector((state) => state.event.events);
+  const isLoading = useAppSelector((state) => state.event.isLoading);
+  const lastIndex = useAppSelector((state) => state.event.lastIndex);
+  
+
   let placeholder = [];
   for (let i = 0; i < 3; i++) {
     placeholder.push(
@@ -39,7 +42,7 @@ export const RECards = () => {
   }
   useEffect(() => {
     dispatch(getEventCardsData(lastIndex, "next"));
-  }, [dispatch]);
+  }, [dispatch, lastIndex]);
 
   const eventsCards = events.map((event) => {
     const moveToEventHandler = () => {

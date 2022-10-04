@@ -15,13 +15,13 @@ import { LinkLabel } from "../../UI/LinkText";
 
 type Props = {
   id: string;
-  logo: string;
+  logo: string|null;
   children?: JSX.Element;
   launchName: string;
   date: string;
   rocketId: number;
 };
-
+// {noImage}
 export const LaunchCard = (props: Props) => {
   const navigate = useNavigate();
 
@@ -44,7 +44,8 @@ export const LaunchCard = (props: Props) => {
         <Box onClick={selectLaunchHandler}>
           <CardMedia
             component="img"
-            image={noImage}
+            height={324}
+            image={props.logo === null? noImage: props.logo}
           />
           <Date
             variant="contained"

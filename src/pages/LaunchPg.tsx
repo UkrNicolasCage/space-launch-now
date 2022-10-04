@@ -23,6 +23,7 @@ export const LaunchPg = () => {
 
     dispatch(loadData(fetchLaunchData));
   }, [dispatch, setlaunchData]);
+
   const heroData = {
     name: launchtData?.name!,
     startTime: launchtData?.window_start!,
@@ -32,6 +33,8 @@ export const LaunchPg = () => {
       ? "obscurely"
       : launchtData?.pad.probability! + "%";
 
+  const video =
+    launchtData?.vidURLs.length !== 0 ? launchtData?.vidURLs[0]! : null;
   const tapeData = {
     overview: {
       destination: launchtData?.mission.orbit!,
@@ -48,14 +51,15 @@ export const LaunchPg = () => {
       configuration: launchtData?.rocket.configuration.variant!,
       description: launchtData?.rocket.configuration.description!,
     },
+    video,
   };
-  return (
+    return (
     <>
       <Page className={styles["launch-pg"]}>
         <LaunchHero data={heroData} />
       </Page>
       <MainMargins>
-        <LaunchTape data={tapeData}/>
+        <LaunchTape data={tapeData} />
       </MainMargins>
     </>
   );

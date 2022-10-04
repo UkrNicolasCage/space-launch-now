@@ -52,12 +52,11 @@ const getLaunches = async (startIndex: number, number: number) => {
     throw new Error("Not found");
   }
   const data = await response.json();
-
   return data.results.map((launch: Launch) => {
     const date = formatDate(new Date(launch.window_start));
     return {
       id: launch.id,
-      logo: launch.feature_image,
+      logo: launch.image_url,
       date,
       name: launch.name,
       rocketId: launch.rocket.configuration.id,
@@ -82,7 +81,6 @@ const getEvent = async (id: string) => {
   }
 
   const data: Event = await response.json()!;
-  console.log(data)
   return data;
 };
 

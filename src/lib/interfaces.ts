@@ -22,8 +22,9 @@ interface CardEvent {
 
 interface Launch {
   id: number;
-  feature_image: string;
+  image_url: string | null;
   slug: string;
+
   pad: {
     location: {
       name: string;
@@ -46,7 +47,7 @@ interface Launch {
   launch_library_id: number;
   window_start: string;
   window_end: Date;
-
+  vidURLs: string[];
   rocket: {
     configuration: Rocket;
   };
@@ -73,7 +74,7 @@ interface CardLaunch {
   id: string;
   name: string;
   date: string;
-  logo?: string;
+  logo: string|null;
   rocketId: number;
 }
 

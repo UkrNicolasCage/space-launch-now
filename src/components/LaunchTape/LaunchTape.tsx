@@ -1,4 +1,7 @@
 import { Skeleton } from "@mui/material";
+import YouTube, { YouTubeProps } from "react-youtube";
+import { getURLParameter } from "../../helpers/getUrlParam";
+import { useAppSelector } from "../../store";
 import { theme } from "../../theme";
 import {
   MediaContainerBottom,
@@ -26,17 +29,34 @@ interface Props {
       configuration: string;
       description: string;
     };
+    video: string | null;
   };
 }
 
+
 export const LaunchTape = (props: Props) => {
-  const { overview, details } = props.data;
+  const isLoading = useAppSelector((state) => state.ui.isLoading);
+
+  const { overview, details, video } = props.data;
+  let videoId = "";
+  if (video !== undefined) {
+    videoId = video === null ? "" : getURLParameter(video as string, "v");
+  }
+
 
   return (
     <Tape style={{ backgroundColor: theme.palette.primary.main }}>
-      <MediaContainerTop>
-        <Skeleton height="100%" variant="rectangular"></Skeleton>
-      </MediaContainerTop>
+      {video === null ? (
+        " "
+      ) : (
+        <MediaContainerTop>
+          {isLoading || videoId === "" ? (
+            <Skeleton height="100%" variant="rectangular"></Skeleton>
+          ) : (
+            <YouTube videoId={videoId} style={{overflow: "hidden"}}/>
+          )}
+        </MediaContainerTop>
+      )}
       <LaunchOverview data={overview} />
       <LaunchDetails data={details} />
       <MediaContainerBottom>

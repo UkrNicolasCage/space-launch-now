@@ -3,7 +3,6 @@ import { TypedUseSelectorHook, useDispatch, useSelector } from "react-redux";
 
 import { eventReducer } from "./event-slice";
 import { launchReducer } from "./launch-slice";
-import { timerReducer } from "./timer-slice";
 import { uiReducer } from "./ui-slice";
 
 export const store = configureStore({
@@ -11,7 +10,6 @@ export const store = configureStore({
     event: eventReducer,
     launch: launchReducer,
     ui: uiReducer,
-    timer: timerReducer
   },
 });
 

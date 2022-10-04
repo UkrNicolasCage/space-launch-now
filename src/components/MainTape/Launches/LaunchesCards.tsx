@@ -13,11 +13,12 @@ export const LaunchesCards = () => {
   const lastIndex = useAppSelector((state) => state.launch.lastIndex);
   const IsLoading = useAppSelector((state) => state.launch.isLoading);
   const launches = useAppSelector((state) => state.launch.launches);
+
   useEffect(() => {
-    if(launches.length === 0){
-    dispatch(getLaunchesCardsData());
+    if (launches.length === 0) {
+      dispatch(getLaunchesCardsData());
     }
-  }, [dispatch]);
+  }, [dispatch, launches.length]);
 
   const loadHandler = () => {
     dispatch(getLaunchesCardsData(lastIndex, 4));
@@ -34,7 +35,6 @@ export const LaunchesCards = () => {
   }
 
   const cards = launches.map((launch) => {
-    
     return (
       <LaunchCard
         key={launch.id}

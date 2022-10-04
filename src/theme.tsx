@@ -79,6 +79,7 @@ export const theme = createTheme({
     MuiButton: {
       styleOverrides: {
         containedSizeLarge: {
+          boxShadow: "none",
           fontSize: "1.2rem",
           fontFamily: "Montserrat",
           borderRadius: "50px",

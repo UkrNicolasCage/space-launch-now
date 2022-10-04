@@ -1,10 +1,13 @@
 import { Grid, Typography } from "@mui/material";
 import { BigBtn } from "../UI/BigBtn";
 import { ALHero } from "../Layout/Hero";
+import { Link } from "react-scroll";
 
 import { Center } from "../Layout/Center";
 
 export const MainHero = () => {
+  const toLaunchesHandler = () => {};
+
   return (
     <Center>
       <ALHero container rowSpacing={5}>
@@ -18,9 +21,21 @@ export const MainHero = () => {
           </Typography>
         </Grid>
         <Grid item xs={12}>
-          <BigBtn variant="contained" size="large" >
-            Show All Launches
-          </BigBtn>
+          <Link
+            to="launches"
+            spy={true}
+            smooth={true}
+            offset={-100}
+            duration={500}
+          >
+            <BigBtn
+              variant="contained"
+              size="large"
+              onClick={toLaunchesHandler}
+            >
+              Show All Launches
+            </BigBtn>
+          </Link>
         </Grid>
       </ALHero>
     </Center>

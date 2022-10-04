@@ -3,14 +3,11 @@ import { MainTape } from "../components/MainTape/MainTape";
 import { MainHero } from "../components/MainTape/MainHero";
 import { Page } from "../components/Layout/Page";
 import { MainMargins } from "../components/Layout/MainMargins";
-
-declare module "@mui/material/Button" {
-  interface ButtonPropsColorOverrides {
-    gradient: true;
-  }
-}
+import { useRef, forwardRef, } from "react";
 
 export const MainPg = () => {
+  const scroll = useRef(null);
+
   return (
     <>
       <Page className={styles["main-pg"]}>
