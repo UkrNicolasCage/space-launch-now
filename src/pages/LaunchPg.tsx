@@ -10,7 +10,7 @@ import { useAppDispatch } from "../store";
 import { loadData } from "../store/ui-slice";
 import styles from "./Page.module.css";
 
-export const LaunchPg = () => {
+const LaunchPg = () => {
   const { launchId } = useParams<{ launchId: string }>();
   const [launchtData, setlaunchData] = useState<Launch>();
   const dispatch = useAppDispatch();
@@ -66,3 +66,5 @@ export const LaunchPg = () => {
     </>
   );
 };
+
+export default LaunchPg;

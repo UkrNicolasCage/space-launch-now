@@ -4,7 +4,7 @@ import MainHero from "../components/MainTape/MainHero";
 import { Page } from "../components/Layout/Page";
 import { MainMargins } from "../components/Layout/MainMargins";
 
-export const MainPg = () => {
+const MainPg = () => {
   return (
     <>
       <Page className={styles["main-pg"]}>
@@ -16,3 +16,6 @@ export const MainPg = () => {
     </>
   );
 };
+
+
+export default MainPg;

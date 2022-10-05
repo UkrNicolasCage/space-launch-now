@@ -10,7 +10,7 @@ import { useAppDispatch} from "../store";
 import { loadData } from "../store/ui-slice";
 import styles from "./Page.module.css";
 
-export const RocketPg = () => {
+ const RocketPg = () => {
   const dispatch = useAppDispatch();
 
   const [rocketData, setRocketData] = useState<Rocket>();
@@ -81,3 +81,5 @@ export const RocketPg = () => {
     </Fragment>
   );
 };
+
+export default RocketPg;

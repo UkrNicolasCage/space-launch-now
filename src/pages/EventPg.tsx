@@ -10,7 +10,7 @@ import { useAppDispatch } from "../store";
 import { loadData } from "../store/ui-slice";
 import styles from "./Page.module.css";
 
-export const EventPg = () => {
+const EventPg = () => {
   const {eventId} = useParams<{ eventId: string }>()
   const [eventData, setEventData] = useState<Event>();
   const [launchData, setLanchData] = useState<Launch>();
@@ -61,3 +61,5 @@ export const EventPg = () => {
     </>
   );
 };
+
+export default EventPg;
