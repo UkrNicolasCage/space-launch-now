@@ -8,7 +8,7 @@ import {
   Typography,
 } from "@mui/material";
 
-import noImage from "../../../assets/no-img.png";
+import noImage from "../../../assets/no-img.jpg";
 import { useNavigate } from "react-router-dom";
 import { memo, MouseEvent } from "react";
 import { LinkLabel } from "../../UI/LinkText";

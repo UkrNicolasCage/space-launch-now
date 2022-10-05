@@ -1,5 +1,5 @@
 import { Event, Launch, Rocket } from "./interfaces";
-import noImg from "../assets/no-img.png";
+import noImg from "../assets/no-img.jpg";
 
 const url = "https://spacelaunchnow.me/api/3.3.0/";
 

@@ -29,7 +29,7 @@ const Hero = styled(Grid)(({ theme }) => ({
   [theme.breakpoints.up("lg")]: {
     width: "90%",
     marginBottom: "51.7vh",
-    padding: "2rem 0% 0 10%",
+    padding: "2.5rem 0% 0 10%",
     "& h1": {
       fontSize: "76px",
     },

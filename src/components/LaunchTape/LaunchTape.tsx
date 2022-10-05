@@ -34,7 +34,6 @@ interface Props {
   };
 }
 
-
 const LaunchTape = (props: Props) => {
   const isLoading = useAppSelector((state) => state.ui.isLoading);
 
@@ -43,7 +42,6 @@ const LaunchTape = (props: Props) => {
   if (video !== undefined) {
     videoId = video === null ? "" : getURLParameter(video as string, "v");
   }
-  console.log("LaunchTape");
 
   return (
     <Tape style={{ backgroundColor: theme.palette.primary.main }}>

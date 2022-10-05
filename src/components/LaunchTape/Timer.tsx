@@ -12,7 +12,8 @@ interface Props {
 const calcDate = (startDate: string) => {
   const today = new Date();
   const target = new Date(startDate);
-  return (+target - +today) / 1000;
+  const result = (+target - +today) / 1000;
+  return result >= 1 ? result : 0;
 };
 
 const Timer = (props: Props) => {
@@ -25,7 +26,11 @@ const Timer = (props: Props) => {
       if (!isLoading) {
         const timeSec = calcDate(props.time);
         if (!Number.isNaN(timeSec)) {
-          setTime(timeSec);
+          if (timeSec >= 1) {
+            setTime(timeSec);
+          } else {
+            setTime(0);
+          }
           setStartTimer(true);
         }
       }
@@ -35,7 +40,7 @@ const Timer = (props: Props) => {
   useEffect(() => {
     const interval = setInterval(() => {
       setTime((prev) => {
-        return prev - 1;
+        return prev - 1 > 0 ? prev - 1 : 0;
       });
     }, 1000);
     if (startTimer) {

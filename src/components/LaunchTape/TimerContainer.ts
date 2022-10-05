@@ -3,6 +3,9 @@ import { Box, styled } from "@mui/material";
 export const TimerContainer = styled(Box)(({ theme }) => ({
   background: theme.palette.secondary.main,
   marginTop: "1.5rem",
+  "& *": {
+    margin: "0 auto"
+  },
   [theme.breakpoints.up("xs")]: {
     width: "18.6rem",
     padding: "0.5rem 0.75rem",
@@ -25,8 +28,8 @@ export const TimerContainer = styled(Box)(({ theme }) => ({
     },
   },
   [theme.breakpoints.up("lg")]: {
-    width: "40rem",
-    padding: "2rem 3.5rem",
+    width: "38rem",
+    padding: "3rem 3.5rem",
     "& h1": {
       fontSize: "4.5rem",
     },

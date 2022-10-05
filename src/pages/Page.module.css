@@ -1,19 +1,23 @@
 .main-pg {
-  background: linear-gradient(1.22deg, #181b48 3.9%, rgba(24, 27, 72, 0) 98.66%) ,
-    url("./../assets/bg_main.png") no-repeat fixed;
+  background: linear-gradient(1.22deg, #181b48 3.9%, rgba(24, 27, 72, 0) 98.66%),
+    url("./../assets/bg_main.jpg") no-repeat fixed;
+  background-size: cover;
 }
 
 .rocket-pg {
   background: linear-gradient(1.22deg, #181b48 3.9%, rgba(24, 27, 72, 0) 98.66%),
-    url("./../assets/bg_rocket.png") no-repeat fixed;
+    url("./../assets/bg_rocket.jpg") no-repeat fixed;
+  background-size: cover;
 }
 
 .event-pg {
   background: linear-gradient(1.22deg, #181b48 3.9%, rgba(24, 27, 72, 0) 98.66%),
-    url("./../assets/bg_event.png") no-repeat fixed;
+    url("./../assets/bg_event.jpg") no-repeat fixed;
+  background-size: cover;
 }
 
 .launch-pg {
   background: linear-gradient(1.22deg, #181b48 3.9%, rgba(24, 27, 72, 0) 98.66%),
-    url("./../assets/bg_launch.png") no-repeat fixed;
+    url("./../assets/bg_launch.jpg") no-repeat fixed;
+  background-size: cover;
 }

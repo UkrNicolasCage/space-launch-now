@@ -4,6 +4,7 @@ import LaunchHero from "../components/LaunchTape/LaunchHero";
 import LaunchTape from "../components/LaunchTape/LaunchTape";
 import { MainMargins } from "../components/Layout/MainMargins";
 import { Page } from "../components/Layout/Page";
+import { nullCheck } from "../helpers/nullCheck";
 import { getLaunch } from "../lib/api";
 import { Launch } from "../lib/interfaces";
 import { useAppDispatch } from "../store";
@@ -37,21 +38,37 @@ const LaunchPg = () => {
 
   const video =
     launchtData?.vidURLs.length !== 0 ? launchtData?.vidURLs[0]! : null;
+
+  const mission =
+    launchtData?.mission! !== null && launchtData?.mission! !== undefined
+      ? launchtData?.mission!
+      : {
+          orbit: null,
+          type: null,
+          description: null,
+        };
+
   const tapeData = {
     overview: {
-      destination: launchtData?.mission.orbit!,
-      mission: launchtData?.mission.type!,
-      decription: launchtData?.mission.description!,
-      complexName: launchtData?.pad.name!,
-      centerName: launchtData?.pad.location.name!,
+      destination: nullCheck(mission.orbit, "No info"),
+      mission: nullCheck(mission.type, "No info"),
+      decription: nullCheck(mission.description, "No description"),
+      complexName: nullCheck(launchtData?.pad.name!, "no info"),
+      centerName: nullCheck(launchtData?.pad.location.name!, "no info"),
       probability,
     },
     details: {
       rocketId: launchtData?.rocket.configuration.id!,
-      name: launchtData?.rocket.configuration.full_name!,
-      familly: launchtData?.rocket.configuration.family!,
-      configuration: launchtData?.rocket.configuration.variant!,
-      description: launchtData?.rocket.configuration.description!,
+      name: nullCheck(launchtData?.rocket.configuration.full_name!, "no info"),
+      familly: nullCheck(launchtData?.rocket.configuration.family!, "no info"),
+      configuration: nullCheck(
+        launchtData?.rocket.configuration.variant!,
+        "no info"
+      ),
+      description: nullCheck(
+        launchtData?.rocket.configuration.description!,
+        ""
+      ),
     },
     video,
   };

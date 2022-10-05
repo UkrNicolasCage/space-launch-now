@@ -22,7 +22,7 @@ const LaunchHero = (props: Props) => {
 
   return (
     <Center>
-      <Hero container rowSpacing={3}>
+      <Hero container rowSpacing={3} marginTop="3.5rem">
         <Grid item xs={12}>
           {isLoading ? (
             placeHolder

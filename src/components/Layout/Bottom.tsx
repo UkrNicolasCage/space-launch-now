@@ -17,7 +17,7 @@ const Bottom = () => {
         </Grid>
         <Grid item xs={6} textAlign="end">
           <Box component="span" color="#C0C0C0">
-            &copy; 2022 Copyright
+            &copy; 2022 Copyright 
           </Box>
         </Grid>
       </Grid>
