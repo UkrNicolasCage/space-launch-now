@@ -1,9 +1,10 @@
 import { Grid, Skeleton } from "@mui/material";
 
-import { RocketInfo } from "./RocketInfo";
+import RocketInfo from "./RocketInfo";
 import { Tape } from "../Layout/Tape";
 import { TextBtn } from "../UI/TextBtn";
 import { useAppSelector } from "../../store";
+import { memo } from "react";
 
 interface Props {
   bodyData: {
@@ -28,9 +29,9 @@ interface Props {
   btnData: { family: string; type: string };
 }
 
-export const RocketTape = (props: Props) => {
+const RocketTape = (props: Props) => {
   const isLoading = useAppSelector((state) => state.ui.isLoading);
-  
+
   return (
     <Tape>
       <Grid
@@ -57,3 +58,5 @@ export const RocketTape = (props: Props) => {
     </Tape>
   );
 };
+
+export default memo(RocketTape);

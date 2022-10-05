@@ -1,6 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const data: any = {};
 const initState = {
   isLoading: false,
   

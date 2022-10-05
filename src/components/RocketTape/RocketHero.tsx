@@ -1,4 +1,5 @@
 import { Grid, Skeleton, Typography } from "@mui/material";
+import { memo } from "react";
 import { useAppSelector } from "../../store";
 import { Center } from "../Layout/Center";
 import { Hero } from "../Layout/Hero";
@@ -13,7 +14,7 @@ interface Props {
   };
 }
 
-export const RocketHero = (props: Props) => {
+const RocketHero = (props: Props) => {
   const isLoading = useAppSelector((state) => state.ui.isLoading);
 
   return (
@@ -54,3 +55,5 @@ export const RocketHero = (props: Props) => {
     </Center>
   );
 };
+
+export default memo(RocketHero);

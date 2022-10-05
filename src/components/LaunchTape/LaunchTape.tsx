@@ -1,5 +1,6 @@
 import { Skeleton } from "@mui/material";
-import YouTube, { YouTubeProps } from "react-youtube";
+import { memo} from "react";
+import YouTube from "react-youtube";
 import { getURLParameter } from "../../helpers/getUrlParam";
 import { useAppSelector } from "../../store";
 import { theme } from "../../theme";
@@ -9,8 +10,8 @@ import {
 } from "../Layout/MediaContainer";
 import { Tape } from "../Layout/Tape";
 
-import { LaunchDetails } from "./LaunchDetails";
-import { LaunchOverview } from "./LaunchOverview";
+import  LaunchDetails  from "./LaunchDetails";
+import  LaunchOverview  from "./LaunchOverview";
 
 interface Props {
   data: {
@@ -34,7 +35,7 @@ interface Props {
 }
 
 
-export const LaunchTape = (props: Props) => {
+const LaunchTape = (props: Props) => {
   const isLoading = useAppSelector((state) => state.ui.isLoading);
 
   const { overview, details, video } = props.data;
@@ -42,7 +43,7 @@ export const LaunchTape = (props: Props) => {
   if (video !== undefined) {
     videoId = video === null ? "" : getURLParameter(video as string, "v");
   }
-
+  console.log("LaunchTape");
 
   return (
     <Tape style={{ backgroundColor: theme.palette.primary.main }}>
@@ -65,3 +66,5 @@ export const LaunchTape = (props: Props) => {
     </Tape>
   );
 };
+
+export default memo(LaunchTape)

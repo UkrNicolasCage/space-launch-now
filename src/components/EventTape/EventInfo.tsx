@@ -1,6 +1,6 @@
 import { Box, Button, Grid, Skeleton, Typography } from "@mui/material";
+import { memo } from "react";
 import { useAppSelector } from "../../store";
-import { MediaContainerTop } from "../Layout/MediaContainer";
 
 interface Props {
   data: {
@@ -14,7 +14,7 @@ interface Props {
   };
 }
 
-export const EventInfo = (props: Props) => {
+const EventInfo = (props: Props) => {
   const isLoading = useAppSelector((state) => state.ui.isLoading);
 
   const { data } = props;
@@ -109,3 +109,5 @@ export const EventInfo = (props: Props) => {
     </Box>
   );
 };
+
+export default memo(EventInfo);

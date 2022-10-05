@@ -1,4 +1,5 @@
 import { Box, Grid, Typography } from "@mui/material";
+import { memo } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAppSelector } from "../../store";
 import { BodyPlaceholder } from "../RocketTape/BodyPlaceholder";
@@ -15,7 +16,7 @@ interface Props {
   };
 }
 
-export const LaunchDetails = (props: Props) => {
+const LaunchDetails = (props: Props) => {
   const { data } = props;
   const isLoading = useAppSelector((state) => state.ui.isLoading);
   const navigate = useNavigate();
@@ -76,3 +77,5 @@ export const LaunchDetails = (props: Props) => {
     </Box>
   );
 };
+
+export default memo(LaunchDetails);

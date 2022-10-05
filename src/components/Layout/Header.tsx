@@ -1,4 +1,4 @@
-import React from "react";
+import React, { memo } from "react";
 import { AppBar, Box, Slide, useScrollTrigger } from "@mui/material";
 import { NavLink, useLocation } from "react-router-dom";
 
@@ -21,7 +21,7 @@ function HideOnScroll(props: Props) {
   );
 }
 
-export const Header = () => {
+const Header = () => {
   const location = useLocation();
   const toHomeLinkStyles =
     location.pathname !== "/" ? styles["to-home-link"] : styles.removed;
@@ -47,3 +47,5 @@ export const Header = () => {
     </HideOnScroll>
   );
 };
+
+export default memo(Header);

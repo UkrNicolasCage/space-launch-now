@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
-import { useLocation, useNavigate, useParams } from "react-router-dom";
-import { EventHero } from "../components/EventTape/EventHero";
-import { EventTape } from "../components/EventTape/EventTape";
+import { useParams } from "react-router-dom";
+import  EventHero  from "../components/EventTape/EventHero";
+import  EventTape  from "../components/EventTape/EventTape";
 import { MainMargins } from "../components/Layout/MainMargins";
 import { Page } from "../components/Layout/Page";
 import { formatDate, getEvent, getLaunch } from "../lib/api";
@@ -26,7 +26,7 @@ export const EventPg = () => {
     };
 
     dispatch(loadData(fetchEventData));
-  }, [dispatch, loadData, getLaunch, getEvent, eventId]);
+  }, [dispatch, eventId]);
 
   useEffect(() => {
     window.scrollTo({ top: 0 });

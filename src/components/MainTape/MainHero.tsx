@@ -4,8 +4,9 @@ import { ALHero } from "../Layout/Hero";
 import { Link } from "react-scroll";
 
 import { Center } from "../Layout/Center";
+import { memo } from "react";
 
-export const MainHero = () => {
+const MainHero = () => {
   const toLaunchesHandler = () => {};
 
   return (
@@ -41,3 +42,5 @@ export const MainHero = () => {
     </Center>
   );
 };
+
+export default memo(MainHero);

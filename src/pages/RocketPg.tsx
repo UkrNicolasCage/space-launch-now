@@ -2,11 +2,11 @@ import { Fragment, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { MainMargins } from "../components/Layout/MainMargins";
 import { Page } from "../components/Layout/Page";
-import { RocketHero } from "../components/RocketTape/RocketHero";
-import { RocketTape } from "../components/RocketTape/RocketTape";
+import RocketHero from "../components/RocketTape/RocketHero";
+import RocketTape from "../components/RocketTape/RocketTape";
 import { getRocket } from "../lib/api";
 import { Rocket } from "../lib/interfaces";
-import { useAppDispatch, useAppSelector } from "../store";
+import { useAppDispatch} from "../store";
 import { loadData } from "../store/ui-slice";
 import styles from "./Page.module.css";
 
@@ -22,7 +22,7 @@ export const RocketPg = () => {
       setRocketData(data);
     };
     dispatch(loadData(fetchRocketData));
-  }, []);
+  }, [dispatch, rocketId]);
 
   const heroDate = new Date(rocketData?.maiden_flight!).toLocaleDateString(
     "en-gb",

@@ -1,13 +1,13 @@
 import { Box, Grid, IconButton, Skeleton, Typography } from "@mui/material";
-import { useEffect } from "react";
+import { memo, useEffect } from "react";
 
 import { useAppDispatch } from "../../../store";
 import { useAppSelector } from "../../../store";
-import { LaunchCard } from "./LaunchCard";
+import  LaunchCard  from "./LaunchCard";
 import { getLaunchesCardsData } from "../../../store/launch-slice";
 import loadIcon from "../../../assets/loading-launches.svg";
 
-export const LaunchesCards = () => {
+const LaunchesCards = () => {
   const dispatch = useAppDispatch();
 
   const lastIndex = useAppSelector((state) => state.launch.lastIndex);
@@ -63,3 +63,5 @@ export const LaunchesCards = () => {
     </>
   );
 };
+
+export default memo(LaunchesCards);

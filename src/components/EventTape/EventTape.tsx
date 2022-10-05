@@ -1,11 +1,12 @@
 import { RecentEvents } from "../RecentEvents/RecentEvents";
-import { EventInfo } from "./EventInfo";
+import  EventInfo  from "./EventInfo";
 import { Tape } from "../Layout/Tape";
 import { Skeleton } from "@mui/material";
 import { MediaContainerTop } from "../Layout/MediaContainer";
 import YouTube from "react-youtube";
 import { useAppSelector } from "../../store";
 import { getURLParameter } from "../../helpers/getUrlParam";
+import { memo } from "react";
 
 interface Props {
   data: {
@@ -19,7 +20,7 @@ interface Props {
   };
 }
 
-export const EventTape = (props: Props) => {
+const EventTape = (props: Props) => {
   const isLoading = useAppSelector((state) => state.ui.isLoading);
   const {video} = props.data;
   let videoId = "";
@@ -42,3 +43,5 @@ export const EventTape = (props: Props) => {
     </Tape>
   );
 };
+
+export default memo(EventTape);

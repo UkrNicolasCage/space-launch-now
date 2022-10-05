@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { LaunchHero } from "../components/LaunchTape/LaunchHero";
-import { LaunchTape } from "../components/LaunchTape/LaunchTape";
+import LaunchHero from "../components/LaunchTape/LaunchHero";
+import LaunchTape from "../components/LaunchTape/LaunchTape";
 import { MainMargins } from "../components/Layout/MainMargins";
 import { Page } from "../components/Layout/Page";
 import { getLaunch } from "../lib/api";
@@ -22,14 +22,16 @@ export const LaunchPg = () => {
     };
 
     dispatch(loadData(fetchLaunchData));
-  }, [dispatch, setlaunchData]);
+  }, [dispatch, setlaunchData, launchId]);
 
   const heroData = {
     name: launchtData?.name!,
     startTime: launchtData?.window_start!,
   };
+
   const probability =
-    launchtData?.pad.probability === null
+    launchtData?.pad.probability === null ||
+    launchtData?.pad.probability === undefined
       ? "obscurely"
       : launchtData?.pad.probability! + "%";
 
@@ -53,7 +55,7 @@ export const LaunchPg = () => {
     },
     video,
   };
-    return (
+  return (
     <>
       <Page className={styles["launch-pg"]}>
         <LaunchHero data={heroData} />

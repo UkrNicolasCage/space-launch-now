@@ -1,8 +1,9 @@
 import { Box, Grid } from "@mui/material";
+import { memo } from "react";
 
 import logo from "../../assets/logo.svg";
 
-export const Bottom = () => {
+const Bottom = () => {
   return (
     <Box padding="4rem 15% 5rem">
       <Grid
@@ -23,3 +24,5 @@ export const Bottom = () => {
     </Box>
   );
 };
+
+export default memo(Bottom);

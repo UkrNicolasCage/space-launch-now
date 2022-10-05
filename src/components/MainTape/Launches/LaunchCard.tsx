@@ -10,7 +10,7 @@ import {
 
 import noImage from "../../../assets/no-img.png";
 import { useNavigate } from "react-router-dom";
-import { MouseEvent } from "react";
+import { memo, MouseEvent } from "react";
 import { LinkLabel } from "../../UI/LinkText";
 
 type Props = {
@@ -21,8 +21,8 @@ type Props = {
   date: string;
   rocketId: number;
 };
-// {noImage}
-export const LaunchCard = (props: Props) => {
+
+const LaunchCard = (props: Props) => {
   const navigate = useNavigate();
 
   const selectLaunchHandler = (event: MouseEvent<HTMLDivElement>) => {
@@ -68,3 +68,5 @@ export const LaunchCard = (props: Props) => {
     </Grid>
   );
 };
+
+export default memo(LaunchCard);

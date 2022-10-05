@@ -1,4 +1,5 @@
-import { Box, Grid, Skeleton, Typography } from "@mui/material";
+import { Box, Grid, Typography } from "@mui/material";
+import { memo } from "react";
 import { useAppSelector } from "../../store";
 import { BodyPlaceholder } from "../RocketTape/BodyPlaceholder";
 import { TextBtn } from "../UI/TextBtn";
@@ -15,7 +16,7 @@ interface Props {
   };
 }
 
-export const LaunchOverview = (props: Props) => {
+const LaunchOverview = (props: Props) => {
   const { data } = props;
   const isLoading = useAppSelector((state) => state.ui.isLoading);
 
@@ -70,3 +71,5 @@ export const LaunchOverview = (props: Props) => {
     </Box>
   );
 };
+
+export default memo(LaunchOverview);

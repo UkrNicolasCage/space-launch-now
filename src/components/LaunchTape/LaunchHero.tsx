@@ -1,8 +1,9 @@
 import { Grid, Skeleton, Typography } from "@mui/material";
+import { memo } from "react";
 import { useAppSelector } from "../../store";
 import { Center } from "../Layout/Center";
 import { Hero } from "../Layout/Hero";
-import { Timer } from "./Timer";
+import Timer from "./Timer";
 
 interface Props {
   data: {
@@ -11,7 +12,7 @@ interface Props {
   };
 }
 
-export const LaunchHero = (props: Props) => {
+const LaunchHero = (props: Props) => {
   const isLoading = useAppSelector((state) => state.ui.isLoading);
   const { data } = props;
 
@@ -39,3 +40,5 @@ export const LaunchHero = (props: Props) => {
     </Center>
   );
 };
+
+export default memo(LaunchHero);

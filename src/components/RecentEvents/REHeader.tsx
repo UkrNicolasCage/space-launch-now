@@ -12,6 +12,7 @@ import nextArrowIcon from "../../assets/arrow-next.svg";
 import { useAppDispatch, useAppSelector } from "../../store";
 import { getEventCardsData } from "../../store/event-slice";
 import { HeaderText } from "../UI/TopicHeader";
+import { memo } from "react";
 
 const Header = styled(AppBar)(({ theme }) => ({
   height: "auto",
@@ -28,7 +29,7 @@ const Header = styled(AppBar)(({ theme }) => ({
   },
 }));
 
-export const REHeader = () => {
+const REHeader = () => {
   const dispatch = useAppDispatch();
   const lastIndex = useAppSelector((state) => state.event.lastIndex);
 
@@ -64,3 +65,5 @@ export const REHeader = () => {
     </StyledEngineProvider>
   );
 };
+
+export default memo(REHeader);

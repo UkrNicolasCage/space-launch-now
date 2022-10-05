@@ -1,9 +1,10 @@
 import { Grid, Typography } from "@mui/material";
+import { memo } from "react";
 
 import icon1 from "../../assets/rocket-icon-1.svg";
 import icon2 from "../../assets/rocket-icon-2.svg";
 import icon3 from "../../assets/rocket-icon-3.svg";
-import { RocketInfoFiled } from "./RocketInfoField";
+import RocketInfoFiled from "./RocketInfoField";
 
 interface Props {
   data: {
@@ -31,8 +32,8 @@ const checkData = (data: string | number) => {
   return data === 0 || data === "" || data === null || data === undefined;
 };
 
-export const RocketInfo = (props: Props) => {
-  const { data} = props;
+const RocketInfo = (props: Props) => {
+  const { data } = props;
 
   const outputData = {
     name: checkData(data.name) ? "-" : data.name,
@@ -81,7 +82,7 @@ export const RocketInfo = (props: Props) => {
             </Grid>
             <Grid item>
               <Typography variant="h5">Name</Typography>
-              <RocketInfoFiled >{outputData.name}</RocketInfoFiled>
+              <RocketInfoFiled>{outputData.name}</RocketInfoFiled>
             </Grid>
             <Grid item>
               <Typography variant="h5">Variant</Typography>
@@ -185,3 +186,5 @@ export const RocketInfo = (props: Props) => {
     </Grid>
   );
 };
+
+export default memo(RocketInfo);

@@ -1,9 +1,9 @@
 import { RecentEvents } from "../RecentEvents/RecentEvents";
-import { Launches } from "./Launches/Launches";
+import  Launches  from "./Launches/Launches";
 import { Tape } from "../Layout/Tape";
+import { memo } from "react";
 
-export const MainTape = () => {
-
+const MainTape = () => {
   return (
     <Tape>
       <RecentEvents />
@@ -11,3 +11,5 @@ export const MainTape = () => {
     </Tape>
   );
 };
+
+export default memo(MainTape);

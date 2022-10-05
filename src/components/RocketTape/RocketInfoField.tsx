@@ -1,11 +1,12 @@
 import { Skeleton, Typography } from "@mui/material";
+import { memo } from "react";
 import { useAppSelector } from "../../store";
 
 interface Props {
   children: string|number;
 }
 
-export const RocketInfoFiled = (props: Props) => {
+ const RocketInfoFiled = (props: Props) => {
   const isLoading = useAppSelector((state) => state.ui.isLoading);
 
   const result = isLoading ? (
@@ -16,3 +17,5 @@ export const RocketInfoFiled = (props: Props) => {
 
   return result;
 };
+
+export default memo(RocketInfoFiled);

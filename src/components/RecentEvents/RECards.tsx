@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { memo, useEffect } from "react";
 import {
   Button,
   Card,
@@ -23,7 +23,7 @@ import { LinkLabel } from "../UI/LinkText";
   }));
   
 
-export const RECards = () => {
+const RECards = () => {
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
 
@@ -81,3 +81,5 @@ export const RECards = () => {
     </Grid>
   );
 };
+
+export default memo(RECards);
