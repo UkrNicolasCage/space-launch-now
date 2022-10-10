@@ -15,7 +15,7 @@ import { useNavigate } from "react-router-dom";
 import { LinkLabel } from "../UI/LinkText";
 
   const AdaptCard = styled(Card)(({ theme }) => ({
-    maxWidth: "23rem",
+    maxWidth: "320px",
     display: "grid",
     justifyContent: "flex-start",
     gridGap: "1rem",
@@ -35,7 +35,7 @@ const RECards = () => {
   let placeholder = [];
   for (let i = 0; i < 3; i++) {
     placeholder.push(
-      <Grid item key={i}>
+      <Grid item key={i} xs={2}>
         <Skeleton variant="rectangular" width={380} height={425} />
       </Grid>
     );
@@ -76,7 +76,7 @@ const RECards = () => {
     );
   });
   return (
-    <Grid container gap="1.25rem" justifyContent="center">
+    <Grid container gap="1rem" justifyContent="center" direction="row">
       {isLoading ? placeholder : eventsCards}
     </Grid>
   );

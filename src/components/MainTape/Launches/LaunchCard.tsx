@@ -39,7 +39,7 @@ const LaunchCard = (props: Props) => {
 
   const [rocketName, launchName] = props.launchName.split("|");
   return (
-    <Grid item key={props.id} width="580px">
+    <Grid item key={props.id} width="480px">
       <Card key={props.id}>
         <Box onClick={selectLaunchHandler}>
           <CardMedia

@@ -1,7 +1,7 @@
 import { Navigate, Route, Routes, useLocation } from "react-router-dom";
 import { Box, CircularProgress, ThemeProvider } from "@mui/material";
 
-import { lazy, useEffect, Suspense, startTransition } from "react";
+import { lazy, useEffect, Suspense } from "react";
 import Header from "./Layout/Header";
 import Bottom from "./Layout/Bottom";
 import { theme } from "../theme";

@@ -4,7 +4,7 @@ import { styled } from "@mui/material/styles";
 const Hero = styled(Grid)(({ theme }) => ({
   [theme.breakpoints.up("xs")]: {
     marginBottom: "80vh",
-    padding: "10rem 0 0 0",
+    padding: "6rem 0 0 0",
     textAlign: "center",
     "& h1": {
       fontSize: "2.75rem",
@@ -29,7 +29,8 @@ const Hero = styled(Grid)(({ theme }) => ({
   [theme.breakpoints.up("lg")]: {
     width: "90%",
     marginBottom: "51.7vh",
-    padding: "2.5rem 0% 0 10%",
+    
+    padding: "0",
     "& h1": {
       fontSize: "76px",
     },
@@ -39,7 +40,7 @@ const Hero = styled(Grid)(({ theme }) => ({
 const ALHero = styled(Hero)(({ theme }) => ({
   [theme.breakpoints.up("xs")]: {
     justifyContent: "center",
-    padding: "9rem 0 0 0",
+    padding: "7rem 0 0 0",
     textAlign: "center",
     "& h1": {
       fontSize: "3.25rem",
@@ -63,7 +64,7 @@ const ALHero = styled(Hero)(({ theme }) => ({
     },
   },
   [theme.breakpoints.up("lg")]: {
-    padding: "2rem 17% 0 10%",
+    padding: "1rem 2% 0 10%",
     "& h1": {
       fontSize: "76px",
     },

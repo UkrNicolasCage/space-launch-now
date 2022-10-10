@@ -16,6 +16,6 @@ export const Center = styled(Box)(({ theme }) => ({
   },
   [theme.breakpoints.up("lg")]: {
     width: "75%",
-    margin: "15% auto 0",
+    margin: "10% auto 0",
   },
 }));
