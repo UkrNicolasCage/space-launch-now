@@ -2,10 +2,14 @@ import { Grid } from "@mui/material";
 import { styled } from "@mui/material/styles";
 
 const Hero = styled(Grid)(({ theme }) => ({
+  textAlign: "center",
+  "& *": {
+    marginLeft: "auto",
+    marginRight: "auto",
+  },
   [theme.breakpoints.up("xs")]: {
     marginBottom: "80vh",
     padding: "6rem 0 0 0",
-    textAlign: "center",
     "& h1": {
       fontSize: "2.75rem",
     },
@@ -27,9 +31,10 @@ const Hero = styled(Grid)(({ theme }) => ({
   },
 
   [theme.breakpoints.up("lg")]: {
-    width: "90%",
+    width: "100%",
+    textlign: "center",
     marginBottom: "51.7vh",
-    
+
     padding: "0",
     "& h1": {
       fontSize: "76px",

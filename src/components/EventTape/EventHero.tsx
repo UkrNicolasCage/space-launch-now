@@ -23,7 +23,7 @@ const EventHero = (props: Props) => {
   };
   return (
     <Center>
-      <Hero container rowSpacing={4} direction="column" justifyContent="center">
+      <Hero container rowSpacing={5} direction="column" justifyContent="center" marginTop="3rem">
         <Grid item>
           {isLoading ? (
             <Skeleton variant="rounded" width="70rem" height="8.5rem" />
