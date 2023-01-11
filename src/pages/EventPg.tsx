@@ -20,6 +20,7 @@ const EventPg = () => {
   useEffect(() => {
     const fetchEventData = async () => {
       const eventData: Event = await getEvent(eventId as string);
+      console.log(eventData.launches)
       const launchData: Launch = await getLaunch(eventData.launches[0].id);
       setEventData(eventData);
       setLanchData(launchData);

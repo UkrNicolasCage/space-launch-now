@@ -75,6 +75,7 @@ const getRocket = async (id: string) => {
 };
 
 const getEvent = async (id: string) => {
+  console.log(url + "event/" + id);
   const response = await fetch(url + "event/" + id);
   if (!response.ok) {
     throw new Error("Not found");

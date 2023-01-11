@@ -29,7 +29,7 @@ const LaunchesCards = () => {
   for (let i = 0; i < launches.length; i++) {
     placeholder.push(
       <Grid item key={i}>
-        <Skeleton variant="rectangular" width={580} height={425} />
+        <Skeleton variant="rectangular" width={480} height={325} />
       </Grid>
     );
   }

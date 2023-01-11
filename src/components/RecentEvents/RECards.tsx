@@ -35,8 +35,8 @@ const RECards = () => {
   let placeholder = [];
   for (let i = 0; i < 3; i++) {
     placeholder.push(
-      <Grid item key={i} width={380}>
-        <Skeleton variant="rectangular" width={380} height={425} />
+      <Grid item key={i} width={320}>
+        <Skeleton variant="rectangular" width={320} height={355} />
       </Grid>
     );
   }
